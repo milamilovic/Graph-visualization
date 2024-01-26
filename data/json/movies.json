@@ -1,0 +1,3010 @@
+[
+  {
+    "title": "The Shawshank Redemption",
+    "year": 1994,
+    "rating": 5,
+    "actors": [
+      "Tim Robbins",
+      "Morgan Freeman",
+      "Bob Gunton",
+      "William Sadler",
+      "Clancy Brown"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Guardians of the Galaxy",
+    "year": 2014,
+    "rating": 5,
+    "actors": [
+      "Chris Pratt",
+      "Zoe Saldana",
+      "Dave Bautista",
+      "Vin Diesel",
+      "Bradley Cooper",
+      "Lee Pace",
+      "Karen Gillan",
+      "Michael Rooker",
+      "Benicio del Toro",
+      "Djimon Hounsou",
+      "John C. Reilly",
+      "Glenn Close",
+      "Josh Brolin"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Fantasy",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "The Godfather",
+    "year": 1972,
+    "rating": 5,
+    "actors": [
+      "Marlon Brando",
+      "Al Pacino",
+      "James Caan",
+      "Richard S. Castellano",
+      "Robert Duvall",
+      "Sterling Hayden"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Interstellar",
+    "year": 2014,
+    "rating": 5,
+    "actors": [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain",
+      "Michael Caine",
+      "Casey Affleck",
+      "Ellen Burstyn",
+      "Matt Damon",
+      "John Lithgow",
+      "Timothée Chalamet",
+      "Mackenzie Foy",
+      "Topher Grace"
+    ],
+    "genre": [
+      "Drama",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "The Imitation Game",
+    "year": 2014,
+    "rating": 5,
+    "actors": [
+      "Benedict Cumberbatch",
+      "Keira Knightley",
+      "Matthew Goode",
+      "Rory Kinnear"
+    ],
+    "genre": [
+      "History",
+      "Drama",
+      "Thriller",
+      "War"
+    ]
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "year": 2014,
+    "rating": 5,
+    "actors": [
+      "Shailene Woodley",
+      "Ansel Elgort",
+      "Nat Wolff"
+    ],
+    "genre": [
+      "Romance",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Whiplash",
+    "year": 2014,
+    "rating": 5,
+    "actors": [
+      "Miles Teller",
+      "J.K. Simmons",
+      "Melissa Benoist",
+      "Austin Stowell",
+      "Jayson Blair",
+      "Paul Reiser",
+      "Chris Mulkey",
+      "Damon Gupton",
+      "Max Kasch",
+      "Jayson Blair"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "12 Angry Men",
+    "year": 1957,
+    "rating": 5,
+    "actors": [
+      "Henry Fonda",
+      "Lee J. Cobb",
+      "Ed Begley",
+      "E.G. Marshall",
+      "Jack Warden",
+      "Martin Balsam"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Avengers: Age of Ultron",
+    "year": 2015,
+    "rating": 5,
+    "actors": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Chris Hemsworth",
+      "Mark Ruffalo",
+      "Scarlett Johansson",
+      "Jeremy Renner",
+      "James Spader",
+      "Elizabeth Olsen",
+      "Aaron Taylor-Johnson",
+      "Paul Bettany",
+      "Samuel L. Jackson",
+      "Cobie Smulders"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Seven Samurai",
+    "year": 1954,
+    "rating": 5,
+    "actors": [
+      "Toshirō Mifune",
+      "Takashi Shimura",
+      "Yoshio Inaba",
+      "Seiji Miyaguchi",
+      "Minoru Chiaki",
+      "Daisuke Katô",
+      "Isao Kimura",
+      "Keiko Tsushima",
+      "Yukiko Shimazaki",
+      "Kamatari Fujiwara",
+      "Yoshio Kosugi",
+      "Bokuzen Hidari",
+      "Yoshio Tsuchiya",
+      "Kokuten Kôdô",
+      "Eijirô Tôno",
+      "Jun Tatara",
+      "Atsushi Watanabe",
+      "Toranosuke Ogawa",
+      "Isao Yamagata",
+      "Kichijirô Ueda"
+    ],
+    "genre": [
+      "Action",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Presto",
+    "year": 2008,
+    "rating": 5,
+    "actors": [
+      "Adam S. Gottbetter"
+    ],
+    "genre": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ]
+  },
+  {
+    "title": "La Haine",
+    "year": 1995,
+    "rating": 5,
+    "actors": [
+      "Vincent Cassel",
+      "Hubert Koundé",
+      "Saïd Taghmaoui",
+      "Abdel Ahmed Ghili",
+      "Héloïse Rauth"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Short Term 12",
+    "year": 2013,
+    "rating": 5,
+    "actors": [
+      "Brie Larson",
+      "John Gallagher Jr.",
+      "Kaitlyn Dever",
+      "Melora Walters",
+      "Stephanie Beatriz",
+      "Rami Malek"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  
+  {
+    "title": "Ex Machina",
+    "year": 2015,
+    "rating": 5,
+    "actors": [
+      "Domhnall Gleeson",
+      "Oscar Isaac",
+      "Alicia Vikander",
+      "Corey Johnson"
+    ],
+    "genre": [
+      "Drama",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "On the Waterfront",
+    "year": 1954,
+    "rating": 5,
+    "actors": [
+      "Marlon Brando",
+      "Karl Malden",
+      "Lee J. Cobb"
+    ],
+    "genre": [
+      "Crime",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Going Clear: Scientology and the Prison of Belief",
+    "year": 2015,
+    "rating": 4,
+    "actors": [
+      "Paul Haggis",
+      "Jason Beghe",
+      "Alex Gibney",
+      "Lawrence Wright",
+      "Sherry Stringfield",
+      "Tom Cruise",
+      "John Travolta",
+      "Katie Holmes",
+      "Nicole Kidman"
+    ],
+    "genre": [
+      "Documentary"
+    ]
+  },
+  {
+    "title": "Doctor Who: The Day of the Doctor",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Matt Smith",
+      "David Tennant",
+      "Christopher Eccleston",
+      "John Hurt",
+      "Paul McGann",
+      "Sylvester McCoy",
+      "Colin Baker",
+      "Peter Davison",
+      "Tom Baker"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "Avengers: Infinity War - Part I",
+    "year": 2018,
+    "rating": 4,
+    "actors": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Josh Brolin",
+      "Samuel L. Jackson",
+      "Scarlett Johansson",
+      "Chris Hemsworth"
+    ],
+    "genre": [
+      "Adventure",
+      "Science Fiction",
+      "Action"
+    ]
+  },
+  {
+    "title": "The Celebration",
+    "year": 1998,
+    "rating": 4,
+    "actors": [
+      "Ulrich Thomsen",
+      "Henning Moritzen",
+      "Thomas Bo Larsen",
+      "Paprika Steen",
+      "Birthe Neumann"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Gone Girl",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Ben Affleck",
+      "Rosamund Pike",
+      "Tyler Perry",
+      "Neil Patrick Harris",
+      "Missi Pyle",
+      "Patrick Fugit",
+      "Kim Dickens",
+      "Casey Wilson",
+      "Kathleen Rose Perkins",
+      "Emily Ratajkowski"
+    ],
+    "genre": [
+      "Mystery",
+      "Thriller",
+      "Drama"
+    ]
+  },
+  {
+    "title": "The Godfather: Part II",
+    "year": 1974,
+    "rating": 4,
+    "actors": [
+      "Al Pacino",
+      "Robert Duvall",
+      "Diane Keaton",
+      "Robert De Niro",
+      "John Cazale",
+      "Talia Shire",
+      "Lee Strasberg"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Big Hero 6",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Scott Adsit",
+      "Ryan Potter",
+      "Daniel Henney",
+      "T.J. Miller",
+      "Jamie Chung",
+      "Damon Wayans Jr.",
+      "Génesis Rodríguez"
+    ],
+    "genre": [
+      "Adventure",
+      "Family",
+      "Animation",
+      "Action",
+      "Comedy"
+    ]
+  },
+  {
+    "title": "How to Train Your Dragon 2",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Jay Baruchel",
+      "Gerard Butler",
+      "Kristen Wiig",
+      "Jonah Hill",
+      "Cate Blanchett",
+      "Djimon Hounsou",
+      "Kit Harington"
+    ],
+    "genre": [
+      "Fantasy",
+      "Action",
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family"
+    ]
+  },
+  {
+    "title": "12 Years a Slave",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Chiwetel Ejiofor",
+      "Michael Fassbender",
+      "Benedict Cumberbatch",
+      "Paul Dano",
+      "Paul Giamatti",
+      "Scoot McNairy",
+      "Lupita Nyong'o",
+      "Adepero Oduye",
+      "Sarah Paulson",
+      "Brad Pitt",
+      "Michael Kenneth Williams",
+      "Alfre Woodard",
+      "Chris Chalk"
+    ],
+    "genre": [
+      "Drama",
+      "History"
+    ]
+  },
+  {
+    "title": "Life Is Beautiful",
+    "year": 1997,
+    "rating": 4,
+    "actors": [
+      "Nicoletta Braschi",
+      "Roberto Benigni",
+      "Giorgio Cantarini",
+      "Giustino Durano"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama"
+    ]
+  },
+  {
+    "title": "The Dark Knight",
+    "year": 2008,
+    "rating": 4,
+    "actors": [
+      "Christian Bale",
+      "Heath Ledger",
+      "Aaron Eckhart",
+      "Michael Caine",
+      "Maggie Gyllenhaal",
+      "Gary Oldman",
+      "Morgan Freeman",
+      "Ron Dean",
+      "Cillian Murphy"
+    ],
+    "genre": [
+      "Drama",
+      "Action",
+      "Crime",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Wolf of Wall Street",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Jonah Hill",
+      "Margot Robbie",
+      "Kyle Chandler",
+      "Rob Reiner",
+      "Matthew McConaughey",
+      "Jon Bernthal",
+      "Henry Zebrowski",
+      "Jake Hoffman"
+    ],
+    "genre": [
+      "Crime",
+      "Drama",
+      "Comedy"
+    ]
+  },
+  {
+    "title": "The Grand Budapest Hotel",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Ralph Fiennes",
+      "Tony Revolori",
+      "F. Murray Abraham",
+      "Mathieu Amalric",
+      "Adrien Brody",
+      "Willem Dafoe",
+      "Jeff Goldblum",
+      "Harvey Keitel",
+      "Jude Law",
+      "Bill Murray",
+      "Tom Wilkinson",
+      "Owen Wilson"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Her",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Joaquin Phoenix",
+      "Scarlett Johansson",
+      "Rooney Mara",
+      "Amy Adams",
+      "Olivia Wilde",
+      "Chris Pratt",
+      "Brian Cox"
+    ],
+    "genre": [
+      "Romance",
+      "Science Fiction",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Dallas Buyers Club",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Matthew McConaughey",
+      "Jennifer Garner",
+      "Jared Leto",
+      "Denis O'Hare"
+    ],
+    "genre": [
+      "Drama",
+      "History"
+    ]
+  },
+  {
+    "title": "Rush",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Daniel Brühl",
+      "Chris Hemsworth",
+      "Olivia Wilde",
+      "Alexandra Maria Lara",
+      "Natalie Dormer"
+    ],
+    "genre": [
+      "Drama",
+      "Action"
+    ]
+  },
+  {
+    "title": "Fight Club",
+    "year": 1999,
+    "rating": 4,
+    "actors": [
+      "Edward Norton",
+      "Brad Pitt",
+      "Helena Bonham Carter",
+      "Meat Loaf",
+      "Jared Leto",
+      "Zach Grenier",
+      "Holt McCallany",
+      "Eion Bailey"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Pulp Fiction",
+    "year": 1994,
+    "rating": 4,
+    "actors": [
+      "John Travolta",
+      "Samuel L. Jackson",
+      "Uma Thurman",
+      "Harvey Keitel",
+      "Tim Roth",
+      "Amanda Plummer",
+      "Maria de Medeiros",
+      "Ving Rhames",
+      "Eric Stoltz",
+      "Rosanna Arquette",
+      "Christopher Walken",
+      "Bruce Willis"
+    ],
+    "genre": [
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Forrest Gump",
+    "year": 1994,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Sally Field",
+      "Robin Wright",
+      "Mykelti Williamson",
+      "Gary Sinise"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Star Wars: Episode V - The Empire Strikes Back",
+    "year": 1980,
+    "rating": 4,
+    "actors": [
+      "Mark Hamill",
+      "Harrison Ford",
+      "Carrie Fisher",
+      "David Prowse",
+      "Billy Dee Williams"
+    ],
+    "genre": [
+      "Adventure",
+      "Action",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Edge of Tomorrow",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Tom Cruise",
+      "Emily Blunt",
+      "Brendan Gleeson",
+      "Bill Paxton",
+      "Jonas Armstrong"
+    ],
+    "genre": [
+      "Action",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Schindler's List",
+    "year": 1993,
+    "rating": 4,
+    "actors": [
+      "Liam Neeson",
+      "Ben Kingsley",
+      "Ralph Fiennes",
+      "Caroline Goodall",
+      "Jonathan Sagall"
+    ],
+    "genre": [
+      "Drama",
+      "History",
+      "War"
+    ]
+  },
+  {
+    "title": "The Green Mile",
+    "year": 1999,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Michael Clarke Duncan",
+      "David Morse",
+      "Bonnie Hunt",
+      "James Cromwell"
+    ],
+    "genre": [
+      "Fantasy",
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Captain Phillips",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Catherine Keener",
+      "Max Martini",
+      "Chris Mulkey"
+    ],
+    "genre": [
+      "Action",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "One Flew Over the Cuckoo's Nest",
+    "year": 1975,
+    "rating": 4,
+    "actors": [
+      "Jack Nicholson",
+      "Louise Fletcher",
+      "Danny DeVito",
+      "Christopher Lloyd"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Goodfellas",
+    "year": 1990,
+    "rating": 4,
+    "actors": [
+      "Robert De Niro",
+      "Ray Liotta",
+      "Joe Pesci",
+      "Catherine Scorsese",
+      "Samuel L. Jackson"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Boyhood",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Ellar Coltrane",
+      "Patricia Arquette",
+      "Ethan Hawke",
+      "Nick Krause"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": 2003,
+    "rating": 4,
+    "actors": [
+      "Elijah Wood",
+      "Ian McKellen",
+      "Viggo Mortensen",
+      "Liv Tyler",
+      "Orlando Bloom"
+    ],
+    "genre": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ]
+  },
+  {
+    "title": "Se7en",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Brad Pitt",
+      "Morgan Freeman",
+      "Gwyneth Paltrow",
+      "R. Lee Ermey",
+      "Andrew Kevin Walker"
+    ],
+    "genre": [
+      "Crime",
+      "Mystery",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "X-Men: Days of Future Past",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Hugh Jackman",
+      "James McAvoy",
+      "Patrick Stewart",
+      "Michael Fassbender",
+      "Ian McKellen",
+      "Jennifer Lawrence",
+      "Nicholas Hoult",
+      "Ellen Page"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Captain America: The Winter Soldier",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Chris Evans",
+      "Scarlett Johansson",
+      "Sebastian Stan",
+      "Samuel L. Jackson",
+      "Robert Redford",
+      "Alan Dale",
+      "Stan Lee"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Nightcrawler",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Jake Gyllenhaal",
+      "Bill Paxton",
+      "Rene Russo",
+      "Kevin Rahm"
+    ],
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Inception",
+    "year": 2010,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Joseph Gordon-Levitt",
+      "Ellen Page",
+      "Tom Hardy",
+      "Ken Watanabe",
+      "Cillian Murphy"
+    ],
+    "genre": [
+      "Action",
+      "Thriller",
+      "Science Fiction",
+      "Mystery",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "Furious 7",
+    "year": 2015,
+    "rating": 4,
+    "actors": [
+      "Vin Diesel",
+      "Dwayne Johnson",
+      "Jason Statham",
+      "Paul Walker"
+    ],
+    "genre": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Matrix",
+    "year": 1999,
+    "rating": 4,
+    "actors": [
+      "Keanu Reeves",
+      "Laurence Fishburne",
+      "Carrie-Anne Moss",
+      "Hugo Weaving",
+      "Gloria Foster",
+      "Ada Nicodemou",
+      "Deni Gordon",
+      "Rowan Witt",
+      "Bill Young"
+    ],
+    "genre": [
+      "Adventure",
+      "Action",
+      "Thriller",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "year": 2001,
+    "rating": 4,
+    "actors": [
+      "Elijah Wood",
+      "Ian McKellen",
+      "Viggo Mortensen",
+      "Liv Tyler",
+      "Orlando Bloom"
+    ],
+    "genre": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ]
+  },
+  {
+    "title": "The Hunger Games: Catching Fire",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Jennifer Lawrence",
+      "Josh Hutcherson",
+      "Sam Claflin",
+      "Elizabeth Banks",
+      "Alan Ritchson",
+      "Jena Malone",
+      "Stanley Tucci",
+      "Liam Hemsworth"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Thriller",
+      "Action",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "Gravity",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Sandra Bullock",
+      "George Clooney",
+      "Ed Harris",
+      "Orto Ignatiussen",
+      "Paul Sharma",
+      "Amy Warren",
+      "Basher Savage"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Thriller",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Blade Runner",
+    "year": 1982,
+    "rating": 4,
+    "actors": [
+      "Harrison Ford",
+      "Rutger Hauer",
+      "Sean Young"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Good, the Bad and the Ugly",
+    "year": 1966,
+    "rating": 4,
+    "actors": [
+      "Eli Wallach",
+      "Clint Eastwood",
+      "Lee Van Cleef",
+      "Aldo Giuffrè",
+      "Luigi Pistilli"
+    ],
+    "genre": [
+      "Western"
+    ]
+  },
+  {
+    "title": "The Shining",
+    "year": 1980,
+    "rating": 4,
+    "actors": [
+      "Jack Nicholson",
+      "Shelley Duvall",
+      "Danny Lloyd",
+      "Scatman Crothers"
+    ],
+    "genre": [
+      "Horror",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Reservoir Dogs",
+    "year": 1992,
+    "rating": 4,
+    "actors": [
+      "Harvey Keitel",
+      "Tim Roth",
+      "Michael Madsen",
+      "Chris Penn"
+    ],
+    "genre": [
+      "Crime",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Scarface",
+    "year": 1983,
+    "rating": 4,
+    "actors": [
+      "Al Pacino",
+      "Steven Bauer",
+      "Michelle Pfeiffer"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "About Time",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Rachel McAdams",
+      "Bill Nighy",
+      "Domhnall Gleeson",
+      "Tom Hollander",
+      "Margot Robbie",
+      "Vanessa Kirby"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Dead Poets Society",
+    "year": 1989,
+    "rating": 4,
+    "actors": [
+      "Robin Williams",
+      "Ethan Hawke",
+      "Robert Sean Leonard",
+      "Gale Hansen"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Star Trek Into Darkness",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Chris Pine",
+      "Zachary Quinto",
+      "Zoe Saldana",
+      "Karl Urban",
+      "Simon Pegg",
+      "John Cho",
+      "Benedict Cumberbatch"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Back to the Future",
+    "year": 1985,
+    "rating": 4,
+    "actors": [
+      "Michael J. Fox",
+      "Christopher Lloyd",
+      "Lea Thompson",
+      "Crispin Glover",
+      "Thomas F. Wilson",
+      "Claudia Wells",
+      "Marc McClure"
+    ],
+    "genre": [
+      "Adventure",
+      "Comedy",
+      "Science Fiction",
+      "Family"
+    ]
+  },
+  {
+    "title": "Saving Private Ryan",
+    "year": 1998,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Tom Sizemore",
+      "Dennis Farina",
+      "Max Martini",
+      "Joerg Stadler",
+      "Harve Presnell",
+      "Matt Damon"
+    ],
+    "genre": [
+      "Drama",
+      "History",
+      "War"
+    ]
+  },
+  {
+    "title": "Inglourious Basterds",
+    "year": 2009,
+    "rating": 4,
+    "actors": [
+      "Brad Pitt",
+      "Christoph Waltz",
+      "Mélanie Laurent",
+      "Diane Kruger",
+      "Mike Myers",
+      "Michael Fassbender",
+      "Samuel L. Jackson",
+      "B. J. Novak"
+    ],
+    "genre": [
+      "Drama",
+      "Action",
+      "Thriller",
+      "War"
+    ]
+  },
+  {
+    "title": "The Departed",
+    "year": 2006,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Matt Damon",
+      "Jack Nicholson"
+    ],
+    "genre": [
+      "Drama",
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "The Prestige",
+    "year": 2006,
+    "rating": 4,
+    "actors": [
+      "Hugh Jackman",
+      "Christian Bale",
+      "Michael Caine",
+      "Scarlett Johansson",
+      "Andy Serkis",
+      "David Bowie"
+    ],
+    "genre": [
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Rear Window",
+    "year": 1954,
+    "rating": 4,
+    "actors": [
+      "James Stewart",
+      "Grace Kelly",
+      "Wendell Corey",
+      "Thelma Ritter",
+      "Alfred Hitchcock"
+    ],
+    "genre": [
+      "Mystery",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Silence of the Lambs",
+    "year": 1991,
+    "rating": 4,
+    "actors": [
+      "Anthony Hopkins",
+      "Jodie Foster",
+      "Scott Glenn",
+      "Ted Levine",
+      "Anthony Heald",
+      "Brooke Smith"
+    ],
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Fury",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Brad Pitt",
+      "Shia LaBeouf",
+      "Logan Lerman"
+    ],
+    "genre": [
+      "War",
+      "Drama",
+      "Action"
+    ]
+  },
+  {
+    "title": "The Big Lebowski",
+    "year": 1998,
+    "rating": 4,
+    "actors": [
+      "Jeff Bridges",
+      "John Goodman",
+      "Steve Buscemi",
+      "Julianne Moore"
+    ],
+    "genre": [
+      "Comedy",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Gran Torino",
+    "year": 2008,
+    "rating": 4,
+    "actors": [
+      "Clint Eastwood",
+      "Cory Hardrict",
+      "John Carroll Lynch",
+      "Geraldine Hughes"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Eternal Sunshine of the Spotless Mind",
+    "year": 2004,
+    "rating": 4,
+    "actors": [
+      "Jim Carrey",
+      "Kate Winslet",
+      "Elijah Wood",
+      "Mark Ruffalo"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Warrior",
+    "year": 2011,
+    "rating": 4,
+    "actors": [
+      "Tom Hardy",
+      "Jennifer Morrison",
+      "Nick Nolte",
+      "Joel Edgerton",
+      "Frank Grillo",
+      "Jake McLaughlin"
+    ],
+    "genre": [
+      "Action",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Good Will Hunting",
+    "year": 1997,
+    "rating": 4,
+    "actors": [
+      "Matt Damon",
+      "Robin Williams",
+      "Ben Affleck",
+      "Stellan Skarsgård",
+      "Minnie Driver",
+      "Casey Affleck"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Requiem for a Dream",
+    "year": 2000,
+    "rating": 4,
+    "actors": [
+      "Ellen Burstyn",
+      "Jared Leto",
+      "Jennifer Connelly"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Once Upon a Time in America",
+    "year": 1984,
+    "rating": 4,
+    "actors": [
+      "Robert De Niro",
+      "James Woods",
+      "Elizabeth McGovern",
+      "Tuesday Weld",
+      "Treat Williams"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Django Unchained",
+    "year": 2012,
+    "rating": 4,
+    "actors": [
+      "Jamie Foxx",
+      "Christoph Waltz",
+      "Leonardo DiCaprio",
+      "Kerry Washington",
+      "Samuel L. Jackson"
+    ],
+    "genre": [
+      "Drama",
+      "Western"
+    ]
+  },
+  {
+    "title": "The Dark Knight Rises",
+    "year": 2012,
+    "rating": 4,
+    "actors": [
+      "Christian Bale",
+      "Michael Caine",
+      "Gary Oldman",
+      "Anne Hathaway",
+      "Tom Hardy",
+      "Morgan Freeman",
+      "Cillian Murphy"
+    ],
+    "genre": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Mr. Nobody",
+    "year": 2009,
+    "rating": 4,
+    "actors": [
+      "Jared Leto",
+      "Diane Kruger",
+      "Linh Dan Pham",
+      "Sarah Polley"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Drama",
+      "Romance",
+      "Fantasy"
+    ]
+  },
+  {
+    "title": "Psycho",
+    "year": 1960,
+    "rating": 4,
+    "actors": [
+      "Anthony Perkins",
+      "Vera Miles",
+      "John Gavin",
+      "Janet Leigh",
+      "Martin Balsam",
+      "John McIntire",
+      "Alfred Hitchcock"
+    ],
+    "genre": [
+      "Drama",
+      "Horror",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Gladiator",
+    "year": 2000,
+    "rating": 4,
+    "actors": [
+      "Russell Crowe",
+      "Joaquin Phoenix",
+      "Connie Nielsen",
+      "Oliver Reed",
+      "Richard Harris"
+    ],
+    "genre": [
+      "Action",
+      "Drama",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "V for Vendetta",
+    "year": 2005,
+    "rating": 4,
+    "actors": [
+      "Natalie Portman",
+      "Hugo Weaving",
+      "Stephen Rea",
+      "Stephen Fry"
+    ],
+    "genre": [
+      "Action",
+      "Thriller",
+      "Fantasy"
+    ]
+  },
+  {
+    "title": "Snatch",
+    "year": 2000,
+    "rating": 4,
+    "actors": [
+      "Jason Statham",
+      "Brad Pitt",
+      "Stephen Graham",
+      "Vinnie Jones",
+      "Alan Ford",
+      "Rade Šerbedžija"
+    ],
+    "genre": [
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Saving Mr. Banks",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Emma Thompson",
+      "Tom Hanks",
+      "Paul Giamatti",
+      "Colin Farrell",
+      "Ruth Wilson",
+      "Jason Schwartzman",
+      "Bradley Whitford",
+      "Annie Rose Buckley",
+      "B. J. Novak"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama",
+      "History"
+    ]
+  },
+  {
+    "title": "Donnie Darko",
+    "year": 2001,
+    "rating": 4,
+    "actors": [
+      "Jake Gyllenhaal",
+      "Patrick Swayze",
+      "James Duval",
+      "Arthur Taxier",
+      "Seth Rogen"
+    ],
+    "genre": [
+      "Fantasy",
+      "Drama",
+      "Mystery"
+    ]
+  },
+  {
+    "title": "The Perks of Being a Wallflower",
+    "year": 2012,
+    "rating": 4,
+    "actors": [
+      "Logan Lerman",
+      "Emma Watson",
+      "Ezra Miller",
+      "Paul Rudd",
+      "Nina Dobrev"
+    ],
+    "genre": [
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Taxi Driver",
+    "year": 1976,
+    "rating": 4,
+    "actors": [
+      "Robert De Niro",
+      "Cybill Shepherd",
+      "Harvey Keitel",
+      "Jodie Foster"
+    ],
+    "genre": [
+      "Crime",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Star Trek",
+    "year": 2009,
+    "rating": 4,
+    "actors": [
+      "Chris Pine",
+      "Zachary Quinto",
+      "Leonard Nimoy",
+      "Eric Bana",
+      "Bruce Greenwood",
+      "Ben Cross",
+      "Winona Ryder",
+      "Chris Hemsworth",
+      "Jennifer Morrison",
+      "Rachel Nichols"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Action",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "Apocalypse Now",
+    "year": 1979,
+    "rating": 4,
+    "actors": [
+      "Martin Sheen",
+      "Marlon Brando",
+      "Robert Duvall"
+    ],
+    "genre": [
+      "War"
+    ]
+  },
+  {
+    "title": "Toy Story",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Tim Allen",
+      "Don Rickles"
+    ],
+    "genre": [
+      "Animation",
+      "Comedy",
+      "Family"
+    ]
+  },
+  {
+    "title": "Life of Brian",
+    "year": 1979,
+    "rating": 4,
+    "actors": [
+      "Graham Chapman",
+      "John Cleese",
+      "Terry Gilliam",
+      "Eric Idle",
+      "George Harrison"
+    ],
+    "genre": [
+      "Comedy"
+    ]
+  },
+  {
+    "title": "Braveheart",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Mel Gibson",
+      "Catherine McCormack",
+      "Sophie Marceau",
+      "Patrick McGoohan",
+      "Angus Macfadyen",
+      "Brendan Gleeson"
+    ],
+    "genre": [
+      "Action",
+      "Drama",
+      "History",
+      "War"
+    ]
+  },
+  {
+    "title": "Indiana Jones and the Last Crusade",
+    "year": 1989,
+    "rating": 4,
+    "actors": [
+      "Harrison Ford",
+      "Sean Connery",
+      "Denholm Elliott",
+      "Alison Doody"
+    ],
+    "genre": [
+      "Adventure",
+      "Action"
+    ]
+  },
+  {
+    "title": "Catch Me If You Can",
+    "year": 2002,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Tom Hanks",
+      "Christopher Walken",
+      "Martin Sheen",
+      "Amy Adams",
+      "James Brolin",
+      "Brian Howe",
+      "Frank John Hughes"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "22 Jump Street",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Jonah Hill",
+      "Channing Tatum",
+      "Dave Franco",
+      "Ice Cube"
+    ],
+    "genre": [
+      "Crime",
+      "Comedy",
+      "Action"
+    ]
+  },
+  {
+    "title": "A Clockwork Orange",
+    "year": 1971,
+    "rating": 4,
+    "actors": [
+      "Malcolm McDowell",
+      "Patrick Magee",
+      "Adrienne Corri",
+      "Michael Bates"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Casino",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Robert De Niro",
+      "Sharon Stone",
+      "Joe Pesci",
+      "James Woods",
+      "Catherine Scorsese"
+    ],
+    "genre": [
+      "Drama",
+      "Crime"
+    ]
+  },
+  {
+    "title": "No Country for Old Men",
+    "year": 2007,
+    "rating": 4,
+    "actors": [
+      "Tommy Lee Jones",
+      "Javier Bardem",
+      "Josh Brolin",
+      "Woody Harrelson"
+    ],
+    "genre": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Unforgiven",
+    "year": 1992,
+    "rating": 4,
+    "actors": [
+      "Clint Eastwood",
+      "Gene Hackman",
+      "Morgan Freeman",
+      "Richard Harris"
+    ],
+    "genre": [
+      "Western"
+    ]
+  },
+  {
+    "title": "Dogville",
+    "year": 2003,
+    "rating": 4,
+    "actors": [
+      "Nicole Kidman",
+      "Harriet Andersson",
+      "Lauren Bacall",
+      "Jean-Marc Barr",
+      "Paul Bettany"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Some Like It Hot",
+    "year": 1959,
+    "rating": 4,
+    "actors": [
+      "Marilyn Monroe",
+      "Tony Curtis",
+      "Jack Lemmon",
+      "George Raft"
+    ],
+    "genre": [
+      "Comedy"
+    ]
+  },
+  {
+    "title": "Million Dollar Baby",
+    "year": 2004,
+    "rating": 4,
+    "actors": [
+      "Clint Eastwood",
+      "Hilary Swank",
+      "Morgan Freeman",
+      "Jay Baruchel",
+      "Mike Colter"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Before Sunrise",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Ethan Hawke",
+      "Julie Delpy",
+      "Erni Mangold"
+    ],
+    "genre": [
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Paddington",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Nicole Kidman",
+      "Peter Capaldi",
+      "Ben Whishaw",
+      "Madeleine Harris"
+    ],
+    "genre": [
+      "Comedy",
+      "Family"
+    ]
+  },
+  {
+    "title": "The Avengers",
+    "year": 2012,
+    "rating": 4,
+    "actors": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Mark Ruffalo",
+      "Chris Hemsworth",
+      "Scarlett Johansson",
+      "Jeremy Renner",
+      "Tom Hiddleston",
+      "Clark Gregg",
+      "Cobie Smulders",
+      "Stellan Skarsgård",
+      "Samuel L. Jackson",
+      "Gwyneth Paltrow",
+      "Paul Bettany",
+      "Stan Lee"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Action",
+      "Adventure"
+    ]
+  },
+  {
+    "title": "The Help",
+    "year": 2011,
+    "rating": 4,
+    "actors": [
+      "Emma Stone",
+      "Viola Davis",
+      "Octavia Spencer"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Batman Begins",
+    "year": 2005,
+    "rating": 4,
+    "actors": [
+      "Christian Bale",
+      "Michael Caine",
+      "Liam Neeson",
+      "Katie Holmes",
+      "Gary Oldman",
+      "Cillian Murphy",
+      "Tom Wilkinson",
+      "Morgan Freeman"
+    ],
+    "genre": [
+      "Action",
+      "Crime",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Shutter Island",
+    "year": 2010,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Mark Ruffalo",
+      "Ben Kingsley"
+    ],
+    "genre": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ]
+  },
+  {
+    "title": "Now You See Me",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Jesse Eisenberg",
+      "Woody Harrelson",
+      "Dave Franco",
+      "Isla Fisher",
+      "Mark Ruffalo",
+      "Mélanie Laurent",
+      "Morgan Freeman"
+    ],
+    "genre": [
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "The Judge",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Robert Downey Jr.",
+      "Robert Duvall",
+      "Vera Farmiga",
+      "Vincent D'Onofrio",
+      "Jeremy Strong"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Chef",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Jon Favreau",
+      "John Leguizamo",
+      "Bobby Cannavale",
+      "Emjay Anthony",
+      "Scarlett Johansson",
+      "Dustin Hoffman",
+      "Robert Downey Jr.",
+      "Russell Peters"
+    ],
+    "genre": [
+      "Comedy"
+    ]
+  },
+  {
+    "title": "The Sixth Sense",
+    "year": 1999,
+    "rating": 4,
+    "actors": [
+      "Bruce Willis",
+      "Haley Joel Osment",
+      "Toni Collette",
+      "Olivia Williams"
+    ],
+    "genre": [
+      "Mystery",
+      "Thriller",
+      "Drama"
+    ]
+  },
+  {
+    "title": "The Truman Show",
+    "year": 1998,
+    "rating": 4,
+    "actors": [
+      "Jim Carrey",
+      "Laura Linney",
+      "Noah Emmerich",
+      "Natascha McElhone",
+      "Ed Harris"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama"
+    ]
+  },
+  {
+    "title": "The Normal Heart",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Mark Ruffalo",
+      "Jim Parsons",
+      "Matt Bomer",
+      "Julia Roberts"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Fantastic Mr. Fox",
+    "year": 2009,
+    "rating": 4,
+    "actors": [
+      "George Clooney",
+      "Meryl Streep",
+      "Jason Schwartzman",
+      "Bill Murray",
+      "Wallace Wolodarsky",
+      "Michael Gambon",
+      "Willem Dafoe",
+      "Owen Wilson",
+      "Wes Anderson",
+      "Brian Cox"
+    ],
+    "genre": [
+      "Adventure",
+      "Animation",
+      "Comedy",
+      "Family"
+    ]
+  },
+  {
+    "title": "The Notebook",
+    "year": 2004,
+    "rating": 4,
+    "actors": [
+      "Rachel McAdams",
+      "Ryan Gosling",
+      "Gena Rowlands"
+    ],
+    "genre": [
+      "Romance",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Begin Again",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Mark Ruffalo",
+      "Keira Knightley",
+      "Adam Levine",
+      "Hailee Steinfeld",
+      "Catherine Keener",
+      "James Corden"
+    ],
+    "genre": [
+      "Comedy",
+      "Music",
+      "Romance",
+      "Drama"
+    ]
+  },
+  {
+    "title": "A Beautiful Mind",
+    "year": 2001,
+    "rating": 4,
+    "actors": [
+      "Russell Crowe",
+      "Ed Harris",
+      "Jennifer Connelly",
+      "Christopher Plummer",
+      "Paul Bettany",
+      "Erik Van Wyck"
+    ],
+    "genre": [
+      "Drama",
+      "Romance"
+    ],
+    "objectID": "439934800"
+  },
+  {
+    "title": "John Wick",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Keanu Reeves",
+      "Michael Nyqvist",
+      "Alfie Allen",
+      "Willem Dafoe"
+    ],
+    "genre": [
+      "Action",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Roman Holiday",
+    "year": 1953,
+    "rating": 4,
+    "actors": [
+      "Gregory Peck",
+      "Audrey Hepburn",
+      "Eddie Albert",
+      "Harcourt Williams",
+      "Tullio Carminati"
+    ],
+    "genre": [
+      "Comedy",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Annie Hall",
+    "year": 1977,
+    "rating": 4,
+    "actors": [
+      "Woody Allen",
+      "Diane Keaton",
+      "Tony Roberts",
+      "Carol Kane",
+      "Paul Simon",
+      "Shelley Duvall"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Before Sunset",
+    "year": 2004,
+    "rating": 4,
+    "actors": [
+      "Ethan Hawke",
+      "Julie Delpy",
+      "Vernon Dobtcheff",
+      "Albert Delpy",
+      "Marie Pillet"
+    ],
+    "genre": [
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Manhattan",
+    "year": 1979,
+    "rating": 4,
+    "actors": [
+      "Woody Allen",
+      "Diane Keaton",
+      "Michael Murphy",
+      "Mariel Hemingway",
+      "Meryl Streep"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Gattaca",
+    "year": 1997,
+    "rating": 4,
+    "actors": [
+      "Ethan Hawke",
+      "Jude Law",
+      "Gore Vidal",
+      "Uma Thurman",
+      "Alan Arkin"
+    ],
+    "genre": [
+      "Thriller",
+      "Science Fiction",
+      "Mystery",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Heat",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Al Pacino",
+      "Robert De Niro",
+      "Val Kilmer",
+      "Jon Voight",
+      "Tom Sizemore",
+      "Diane Venora"
+    ],
+    "genre": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Lost in Translation",
+    "year": 2003,
+    "rating": 4,
+    "actors": [
+      "Bill Murray",
+      "Scarlett Johansson",
+      "Anna Faris",
+      "Giovanni Ribisi",
+      "Akiko Takeshita",
+      "Hiroko Kawasaki",
+      "Catherine Lambert"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "year": 2003,
+    "rating": 4,
+    "actors": [
+      "Johnny Depp",
+      "Geoffrey Rush",
+      "Orlando Bloom",
+      "Keira Knightley",
+      "Jack Davenport"
+    ],
+    "genre": [
+      "Adventure",
+      "Fantasy",
+      "Action"
+    ]
+  },
+  {
+    "title": "The Game",
+    "year": 1997,
+    "rating": 4,
+    "actors": [
+      "Michael Douglas",
+      "Sean Penn",
+      "Deborah Kara Unger",
+      "James Rebhorn"
+    ],
+    "genre": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ]
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "year": 2010,
+    "rating": 4,
+    "actors": [
+      "Daniel Radcliffe",
+      "Emma Watson",
+      "Rupert Grint",
+      "Helena Bonham Carter",
+      "Alan Rickman",
+      "Bill Nighy",
+      "Michael Gambon",
+      "Ralph Fiennes"
+    ],
+    "genre": [
+      "Adventure",
+      "Fantasy",
+      "Family"
+    ]
+  },
+  {
+    "title": "The Deer Hunter",
+    "year": 1978,
+    "rating": 4,
+    "actors": [
+      "Robert De Niro",
+      "John Cazale",
+      "John Savage",
+      "Christopher Walken",
+      "Meryl Streep",
+      "George Dzundza"
+    ],
+    "genre": [
+      "Drama",
+      "War"
+    ]
+  },
+  {
+    "title": "The Way Way Back",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Steve Carell",
+      "Toni Collette",
+      "AnnaSophia Robb",
+      "Sam Rockwell"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Maleficent",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Angelina Jolie",
+      "Elle Fanning",
+      "Juno Temple"
+    ],
+    "genre": [
+      "Fantasy",
+      "Adventure",
+      "Action",
+      "Family",
+      "Romance"
+    ]
+  },
+  {
+    "title": "The Maze Runner",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Dylan O'Brien",
+      "Aml Ameen",
+      "Ki Hong Lee",
+      "Blake Cooper",
+      "Thomas Sangster",
+      "Will Poulter"
+    ],
+    "genre": [
+      "Action",
+      "Mystery",
+      "Science Fiction",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Great Gatsby",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Tobey Maguire",
+      "Carey Mulligan",
+      "Joel Edgerton",
+      "Elizabeth Debicki",
+      "Isla Fisher",
+      "Jason Clarke",
+      "Garrett William Fountain"
+    ],
+    "genre": [
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Office Space",
+    "year": 1999,
+    "rating": 4,
+    "actors": [
+      "Ron Livingston",
+      "Jennifer Aniston",
+      "David Herman",
+      "Ajay Naidu",
+      "Diedrich Bader"
+    ],
+    "genre": [
+      "Comedy",
+      "Crime"
+    ]
+  },
+  {
+    "title": "For a Few Dollars More",
+    "year": 1965,
+    "rating": 4,
+    "actors": [
+      "Clint Eastwood",
+      "Lee Van Cleef",
+      "Gian Maria Volonté",
+      "Klaus Kinski",
+      "Mara Krupp",
+      "Luigi Pistilli"
+    ],
+    "genre": [
+      "Western"
+    ]
+  },
+  {
+    "title": "Cast Away",
+    "year": 2000,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Helen Hunt",
+      "Chris Noth",
+      "Paul Sanchez"
+    ],
+    "genre": [
+      "Adventure",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Remember the Titans",
+    "year": 2000,
+    "rating": 4,
+    "actors": [
+      "Denzel Washington",
+      "Wood Harris",
+      "Hayden Panettiere",
+      "Ryan Gosling"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Blood Diamond",
+    "year": 2006,
+    "rating": 4,
+    "actors": [
+      "Leonardo DiCaprio",
+      "Djimon Hounsou"
+    ],
+    "genre": [
+      "Drama",
+      "Thriller",
+      "Action"
+    ]
+  },
+  {
+    "title": "Blow",
+    "year": 2001,
+    "rating": 4,
+    "actors": [
+      "Johnny Depp",
+      "Penélope Cruz",
+      "Ethan Suplee",
+      "Ray Liotta"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Avatar",
+    "year": 2009,
+    "rating": 4,
+    "actors": [
+      "Sam Worthington",
+      "Zoe Saldana",
+      "Sigourney Weaver",
+      "Stephen Lang"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Fantasy",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "Despicable Me",
+    "year": 2010,
+    "rating": 4,
+    "actors": [
+      "Steve Carell",
+      "Jason Segel",
+      "Russell Brand",
+      "Julie Andrews",
+      "Will Arnett"
+    ],
+    "genre": [
+      "Animation",
+      "Family"
+    ]
+  },
+  {
+    "title": "Midnight in Paris",
+    "year": 2011,
+    "rating": 4,
+    "actors": [
+      "Owen Wilson",
+      "Rachel McAdams",
+      "Kurt Fuller",
+      "Mimi Kennedy",
+      "Michael Sheen",
+      "Nina Arianda"
+    ],
+    "genre": [
+      "Fantasy",
+      "Comedy",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Rain Man",
+    "year": 1988,
+    "rating": 4,
+    "actors": [
+      "Dustin Hoffman",
+      "Tom Cruise",
+      "Valeria Golino"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Titanic",
+    "year": 1997,
+    "rating": 4,
+    "actors": [
+      "Kate Winslet",
+      "Leonardo DiCaprio",
+      "Frances Fisher",
+      "Billy Zane",
+      "Kathy Bates"
+    ],
+    "genre": [
+      "Action",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Die Hard",
+    "year": 1988,
+    "rating": 4,
+    "actors": [
+      "Bruce Willis",
+      "Alan Rickman",
+      "Reginald VelJohnson",
+      "Bonnie Bedelia",
+      "Anthony Peck"
+    ],
+    "genre": [
+      "Action",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Jurassic Park",
+    "year": 1993,
+    "rating": 4,
+    "actors": [
+      "Sam Neill",
+      "Laura Dern",
+      "Jeff Goldblum",
+      "Richard Attenborough",
+      "Bob Peck",
+      "Ariana Richards",
+      "Samuel L. Jackson"
+    ],
+    "genre": [
+      "Adventure",
+      "Science Fiction"
+    ]
+  },
+  {
+    "title": "The Bourne Identity",
+    "year": 2002,
+    "rating": 4,
+    "actors": [
+      "Matt Damon",
+      "Franka Potente",
+      "Chris Cooper",
+      "Clive Owen",
+      "Brian Cox"
+    ],
+    "genre": [
+      "Action",
+      "Drama",
+      "Mystery",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Lucky Number Slevin",
+    "year": 2006,
+    "rating": 4,
+    "actors": [
+      "Josh Hartnett",
+      "Bruce Willis",
+      "Lucy Liu",
+      "Morgan Freeman",
+      "Ben Kingsley",
+      "Peter Outerbridge",
+      "Stanley Tucci"
+    ],
+    "genre": [
+      "Drama",
+      "Thriller",
+      "Crime",
+      "Mystery"
+    ]
+  },
+  {
+    "title": "Thor: The Dark World",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Chris Hemsworth",
+      "Natalie Portman",
+      "Tom Hiddleston",
+      "Anthony Hopkins"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ]
+  },
+  {
+    "title": "Divergent",
+    "year": 2014,
+    "rating": 4,
+    "actors": [
+      "Shailene Woodley",
+      "Miles Teller",
+      "Theo James",
+      "Kate Winslet"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Action"
+    ]
+  },
+  {
+    "title": "The Social Network",
+    "year": 2010,
+    "rating": 4,
+    "actors": [
+      "Jesse Eisenberg",
+      "Andrew Garfield",
+      "Justin Timberlake",
+      "Rooney Mara",
+      "Bryan Barter",
+      "Dakota Johnson"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Drive",
+    "year": 2011,
+    "rating": 4,
+    "actors": [
+      "Ryan Gosling",
+      "Carey Mulligan"
+    ],
+    "genre": [
+      "Drama",
+      "Action",
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "A Fistful of Dollars",
+    "year": 1964,
+    "rating": 4,
+    "actors": [
+      "Clint Eastwood",
+      "Marianne Koch",
+      "Wolfgang Lukschy"
+    ],
+    "genre": [
+      "Western"
+    ]
+  },
+  {
+    "title": "Fear and Loathing in Las Vegas",
+    "year": 1998,
+    "rating": 4,
+    "actors": [
+      "Johnny Depp",
+      "Benicio del Toro",
+      "Tobey Maguire"
+    ],
+    "genre": [
+      "Adventure",
+      "Drama",
+      "Comedy"
+    ]
+  },
+  {
+    "title": "Sin City",
+    "year": 2005,
+    "rating": 4,
+    "actors": [
+      "Bruce Willis",
+      "Mickey Rourke",
+      "Clive Owen",
+      "Jessica Alba",
+      "Elijah Wood"
+    ],
+    "genre": [
+      "Action",
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "The Curious Case of Benjamin Button",
+    "year": 2008,
+    "rating": 4,
+    "actors": [
+      "Cate Blanchett",
+      "Brad Pitt",
+      "Tilda Swinton",
+      "Elle Fanning"
+    ],
+    "genre": [
+      "Fantasy",
+      "Drama",
+      "Thriller",
+      "Mystery",
+      "Romance"
+    ]
+  },
+  {
+    "title": "O Brother, Where Art Thou?",
+    "year": 2000,
+    "rating": 4,
+    "actors": [
+      "George Clooney",
+      "John Turturro",
+      "Tim Blake Nelson",
+      "John Goodman"
+    ],
+    "genre": [
+      "Action",
+      "Adventure",
+      "Comedy"
+    ]
+  },
+  {
+    "title": "Twelve Monkeys",
+    "year": 1995,
+    "rating": 4,
+    "actors": [
+      "Bruce Willis",
+      "Madeleine Stowe",
+      "Brad Pitt",
+      "Christopher Plummer"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Thriller",
+      "Mystery"
+    ]
+  },
+  {
+    "title": "Moulin Rouge!",
+    "year": 2001,
+    "rating": 4,
+    "actors": [
+      "Nicole Kidman",
+      "Ewan McGregor",
+      "John Leguizamo",
+      "Ozzy Osbourne"
+    ],
+    "genre": [
+      "Romance",
+      "Drama",
+      "Music"
+    ]
+  },
+  {
+    "title": "Edward Scissorhands",
+    "year": 1990,
+    "rating": 4,
+    "actors": [
+      "Johnny Depp",
+      "Winona Ryder",
+      "Dianne Wiest",
+      "Alan Arkin"
+    ],
+    "genre": [
+      "Fantasy",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "What's Eating Gilbert Grape",
+    "year": 1993,
+    "rating": 4,
+    "actors": [
+      "Johnny Depp",
+      "Leonardo DiCaprio",
+      "Juliette Lewis",
+      "Darlene Cates",
+      "Mary Steenburgen"
+    ],
+    "genre": [
+      "Comedy",
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Philadelphia",
+    "year": 1993,
+    "rating": 4,
+    "actors": [
+      "Tom Hanks",
+      "Denzel Washington",
+      "Jason Robards",
+      "Mary Steenburgen"
+    ],
+    "genre": [
+      "Drama",
+      "Mystery"
+    ]
+  },
+  {
+    "title": "Pitch Perfect",
+    "year": 2012,
+    "rating": 4,
+    "actors": [
+      "Anna Kendrick",
+      "Skylar Astin",
+      "Brittany Snow",
+      "Anna Camp",
+      "Rebel Wilson"
+    ],
+    "genre": [
+      "Comedy",
+      "Music",
+      "Romance"
+    ]
+  },
+  {
+    "title": "Predator",
+    "year": 1987,
+    "rating": 4,
+    "actors": [
+      "Arnold Schwarzenegger",
+      "Carl Weathers",
+      "Elpidia Carrillo"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Action",
+      "Adventure",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "The Hurt Locker",
+    "year": 2008,
+    "rating": 4,
+    "actors": [
+      "Jeremy Renner",
+      "Anthony Mackie",
+      "Brian Geraghty"
+    ],
+    "genre": [
+      "Drama",
+      "Thriller",
+      "War"
+    ]
+  },
+  {
+    "title": "Groundhog Day",
+    "year": 1993,
+    "rating": 4,
+    "actors": [
+      "Bill Murray",
+      "Andie MacDowell",
+      "Chris Elliott",
+      "Stephen Tobolowsky"
+    ],
+    "genre": [
+      "Romance",
+      "Fantasy",
+      "Drama",
+      "Comedy"
+    ]
+  },
+  {
+    "title": "The Butterfly Effect",
+    "year": 2004,
+    "rating": 4,
+    "actors": [
+      "Ashton Kutcher",
+      "Amy Smart",
+      "William Lee Scott",
+      "Elden Henson"
+    ],
+    "genre": [
+      "Science Fiction",
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Saw",
+    "year": 2004,
+    "rating": 4,
+    "actors": [
+      "Leigh Whannell",
+      "Cary Elwes",
+      "Danny Glover",
+      "Ken Leung",
+      "Dina Meyer"
+    ],
+    "genre": [
+      "Horror",
+      "Mystery",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Before Midnight",
+    "year": 2013,
+    "rating": 4,
+    "actors": [
+      "Ethan Hawke",
+      "Julie Delpy",
+      "Seamus Davey-Fitzpatrick",
+      "Ariane Labed"
+    ],
+    "genre": [
+      "Romance",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Pride & Prejudice",
+    "year": 2005,
+    "rating": 4,
+    "actors": [
+      "Keira Knightley",
+      "Matthew Macfadyen",
+      "Rosamund Pike",
+      "Simon Woods",
+      "Donald Sutherland",
+      "Brenda Blethyn",
+      "Jena Malone"
+    ],
+    "genre": [
+      "Drama",
+      "Romance"
+    ]
+  },
+  {
+    "title": "The Godfather: Part III",
+    "year": 1990,
+    "rating": 4,
+    "actors": [
+      "Al Pacino",
+      "Diane Keaton",
+      "Andy García",
+      "Talia Shire",
+      "Sofia Coppola",
+      "Eli Wallach",
+      "Joe Mantegna",
+      "George Hamilton"
+    ],
+    "genre": [
+      "Drama",
+      "Action",
+      "Thriller",
+      "Crime"
+    ]
+  },
+  {
+    "title": "Rocky",
+    "year": 1976,
+    "rating": 4,
+    "actors": [
+      "Sylvester Stallone",
+      "Talia Shire",
+      "Burt Young"
+    ],
+    "genre": [
+      "Drama"
+    ]
+  },
+  {
+    "title": "Misery",
+    "year": 1990,
+    "rating": 4,
+    "actors": [
+      "James Caan",
+      "Kathy Bates",
+      "Richard Farnsworth"
+    ],
+    "genre": [
+      "Thriller"
+    ]
+  },
+  {
+    "title": "Adam's Apples",
+    "year": 2005,
+    "rating": 4,
+    "actors": [
+      "Mads Mikkelsen",
+      "Ulrich Thomsen",
+      "Paprika Steen"
+    ],
+    "genre": [
+      "Comedy",
+      "Crime",
+      "Drama"
+    ]
+  },
+  {
+    "title": "Training Day",
+    "year": 2001,
+    "rating": 4,
+    "actors": [
+      "Denzel Washington",
+      "Ethan Hawke",
+      "Cliff Curtis",
+      "Snoop Dogg",
+      "Dr. Dre",
+      "Eva Mendes"
+    ],
+    "genre": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ]
+  }
+]
