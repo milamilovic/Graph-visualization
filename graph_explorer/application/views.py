@@ -5,6 +5,6 @@ from use_cases import load_plugins
 
 # Create your views here.
 def index(request):
-    visualisers = load_plugins.load()
-    print(visualisers)
+    plugins = load_plugins.load()
+    print(plugins)
     return render(request, "index.html",{})
