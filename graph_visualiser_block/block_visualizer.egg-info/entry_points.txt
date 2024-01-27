@@ -1,0 +1,2 @@
+[visualizer]
+block-visualizer = block_visualiser.block_visualiser:BlockVisualiser
