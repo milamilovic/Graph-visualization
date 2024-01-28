@@ -45,8 +45,9 @@
                 <h3>Graph visualizer</h3>
             </div>
             <div class="flex-container">
-              <div class="flex-item-left">Simple visualizer</div>
-              <div class="flex-item-right">Block visualizer</div>
+            {% for v in visualisers %}
+              <div class="flex-item-left">{{v.name}}</div>
+             {% endfor %}
             </div>
             <form class="s" method ="post">
                  {% csrf_token %}
@@ -73,9 +74,9 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <select class="form-control" id="dataSource" name="parser">
-                        <option class="options" value="xml">XML</option>
-                        <option class="options" value="json">JSON</option>
-                        <option class="options" value="rdf">RDF</option>
+                          {% for l in loaders %}
+                            <option class="options" value="xml">{{l.name}}</option>
+                          {% endfor %}
                     </select>
                 </div>
             </form>
@@ -118,6 +119,6 @@
   function toggleSidebar(sidebarId) {
     var sidebar = document.getElementById(sidebarId);
     sidebar.style.width = sidebar.style.width === '0px' ? '300px' : '0';
-  }
+    }
 
 </script>
