@@ -1,7 +1,9 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod
+
+from services.service_base_api import ServiceBase
 
 
-class GraphLoading(ABC):
+class GraphLoading(ServiceBase):
     @abstractmethod
     def load_graph(self, path: str) -> bool:
         pass
