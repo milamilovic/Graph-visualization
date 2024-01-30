@@ -32,7 +32,7 @@ class Node:
         self._attributes[key] = value
 
     def add_edge(self, edge):
-        pass
+        self._edges.append(edge)
 
     def contains_edge(self, edge):
         pass

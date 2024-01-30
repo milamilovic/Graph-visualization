@@ -21,10 +21,7 @@ class Graph:
         self._id = id
 
     def add_node(self, node):
-        pass
-
-    def add_edge(self, edge,node):
-        pass
+        self.nodes.append(node)
 
     def contains_node(self, node):
         pass
