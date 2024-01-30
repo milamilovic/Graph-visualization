@@ -70,14 +70,15 @@
                      <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </form>
-            <form method="post">
+            <form method="post" action="{% url 'load_data_source' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <select class="form-control" id="dataSource" name="parser">
                           {% for l in loaders %}
-                            <option class="options" value="xml">{{l.name}}</option>
+                            <option name="source" class="options" value="{{l.identifier}}">{{l.name}}</option>
                           {% endfor %}
                     </select>
+                    <button class="flex-item-left" type="submit">Apply plugin</button>
                 </div>
             </form>
         </nav>
@@ -114,11 +115,17 @@
 {% endblock %}
 </body>
 </html>
+
 <script>
 
   function toggleSidebar(sidebarId) {
     var sidebar = document.getElementById(sidebarId);
     sidebar.style.width = sidebar.style.width === '0px' ? '300px' : '0';
     }
+
+  document.getElementById("dataSource").addEventListener("change", function() {
+    var selectedText = this.options[this.selectedIndex].text;
+    console.log("Selected text: " + selectedText);
+  });
 
 </script>
