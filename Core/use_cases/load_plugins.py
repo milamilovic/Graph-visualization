@@ -20,3 +20,9 @@ def load():
         loaders.append(plugin)
 
     return visualisers, loaders
+
+
+def load_data_source(loaders, selected_data_source):
+    for p in loaders:
+        if p.identifier() == selected_data_source:
+            p.load_graph("data/rdf/people.nt")
