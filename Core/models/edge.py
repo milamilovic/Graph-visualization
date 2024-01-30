@@ -2,11 +2,21 @@
 
 class Edge:
 
-    def __init__(self, fromNode, toNode, name, is_directed):
+    def __init__(self, id,fromNode, toNode, name, is_directed):
         self._fromNode = fromNode
         self._toNode = toNode
         self._name = name
+        self._id = id
         self._is_directed = is_directed
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+
 
 
     @property
