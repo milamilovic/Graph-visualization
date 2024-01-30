@@ -1,8 +1,8 @@
-
 class Graph:
     def __init__(self):
-        self._id = id
+        self._id = 0
         self._nodes = []
+        self._edges = []
 
     @property
     def nodes(self):
@@ -20,12 +20,19 @@ class Graph:
     def id(self, id):
         self._id = id
 
+    @property
+    def edges(self):
+        return self._edges
+
+    @edges.setter
+    def edges(self, edges):
+        self._edges = edges
+
     def add_node(self, node):
-        self.nodes.append(node)
+        self._nodes.append(node)
+
+    def add_edge(self, edge):
+        self._edges.append(edge)
 
     def contains_node(self, node):
-        pass
-
-
-
-
+        return node in self._nodes

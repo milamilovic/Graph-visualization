@@ -35,4 +35,4 @@ class Node:
         self._edges.append(edge)
 
     def contains_edge(self, edge):
-        pass
+        return edge in self._edges
