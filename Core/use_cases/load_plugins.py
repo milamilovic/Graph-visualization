@@ -1,3 +1,5 @@
+import os
+
 import pkg_resources
 
 
@@ -22,7 +24,17 @@ def load():
     return visualisers, loaders
 
 
-def load_data_source(loaders, selected_data_source):
+def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, request):
     for p in loaders:
-        if p.identifier() == selected_data_source:
-            p.load_graph("data/rdf/people.nt")
+        if p.identifier() == "json_loader":
+            graph = p.load_graph("../data/json/movies.json")
+            visualize(visualizers, selected_visualizer, graph, request)
+
+
+def visualize(visualisers, selected_visualizer, graph, request):
+    for v in visualisers:
+        if v.identifier() == selected_visualizer:
+            path = os.path.abspath(os.path.join(
+                os.path.dirname(__file__), "../../../../graph_explorer/application/templates", "mainView.html"))
+            with open(path, 'w') as file:
+                file.write(v.visualize(graph, request))

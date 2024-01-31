@@ -43,7 +43,7 @@ class RDFLoader(GraphLoading):
         name = edge.split("/")[-1]
         # print(name)
         self.edge_id += 1
-        new_edge = e.Edge(from_node, to_node, name, True)
+        new_edge = e.Edge(self.edge_id, from_node, to_node, name, True)
         from_node.add_edge(new_edge)
         to_node.add_edge(new_edge)
 
