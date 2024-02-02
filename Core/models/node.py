@@ -1,8 +1,13 @@
 class Node:
+
+    __slots__ = '_attributes', '_id', '_edges'
     def __init__(self, id):
         self._attributes = {}
         self._id = id
         self._edges = []
+
+    def __str__(self):
+        return '({0},{1},{2})'.format(self._attributes, self._id, self._edges)
 
     @property
     def attributes(self):

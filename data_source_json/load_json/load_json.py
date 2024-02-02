@@ -20,10 +20,10 @@ class JsonLoader(GraphLoading):
     def name(self):
         return 'JSON loader'
 
-    def load_graph(self, path: str) -> bool:
-        with open("../../data/json/movies.json", encoding="utf-8") as file:
+    def load_graph(self, path: str) -> Graph:
+        with open(path, encoding="utf-8") as file:
             data = self.load_file(file)
-        graph = self.make_graph(data)
+        return self.make_graph(data)
 
     def load_file(self, file):
         json_object = json.load(file)
