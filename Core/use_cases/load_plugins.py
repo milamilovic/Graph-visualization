@@ -29,6 +29,9 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
         if p.identifier() == "json_loader":
             graph = p.load_graph("../data/json/movies.json")
             visualize(visualizers, selected_visualizer, graph, request)
+        elif p.identifier() == "xml_loader":
+            graph = p.load_graph("../data/xml/flights.xml")
+            print("xml loader prikazuje")
 
 
 def visualize(visualisers, selected_visualizer, graph, request):
