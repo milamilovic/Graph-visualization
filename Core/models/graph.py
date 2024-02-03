@@ -1,3 +1,6 @@
+from deepdiff import DeepDiff
+
+
 class Graph:
     def __init__(self):
         self._id = 0
@@ -37,7 +40,10 @@ class Graph:
         self._edges.append(edge)
 
     def contains_node(self, node):
-        return node in self._nodes
+       for n in self._nodes:
+          if not DeepDiff(n.attributes, node.attributes):
+             return True
+       return False
 
     def get_node(self, id):
         for node in self._nodes:

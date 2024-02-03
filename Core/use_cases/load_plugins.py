@@ -1,3 +1,5 @@
+import os
+
 import pkg_resources
 from use_cases.config import CoreConfig
 
@@ -26,7 +28,7 @@ def load():
     return visualisers, loaders
 
 
-def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, path):
+def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, path, request):
     graph = None
     # cc = CoreConfig()
     for l in loaders:
@@ -37,9 +39,19 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
             print(graph)
             print("LOAD",len(graph.nodes))
 
-    for v in visualizers:
-        print(selected_visualizer)
+    visualize(visualizers, selected_visualizer, graph, request)
+#     for v in visualizers:
+#         print(selected_visualizer)
+#         if v.identifier() == selected_visualizer:
+#             # pozvati iscrtavanje
+#             # v.visualize(graph)
+#             pass
+          
+def visualize(visualisers, selected_visualizer, graph, request):
+    for v in visualisers:
         if v.identifier() == selected_visualizer:
-            # pozvati iscrtavanje
-            # v.visualize(graph)
-            pass
+            path = os.path.abspath(os.path.join(
+                os.path.dirname(__file__), "../../../../graph_explorer/application/templates", "mainView.html"))
+            with open(path, 'w') as file:
+                file.write(v.visualize(graph, request))
+
