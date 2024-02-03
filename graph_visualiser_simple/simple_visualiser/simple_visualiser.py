@@ -38,13 +38,13 @@ class SimpleVisualiser(GraphVisualisation):
                 <style>
                 .node {
                 cursor: pointer;
-                color: #003b73;
+                color: #5b5b5b;
                 text-align: center;
                 }
 
                 .link {
                 fill: none;
-                stroke: #404040;
+                stroke: #333333;
                 stroke-width: 1.5px;
                 }
                 </style>
@@ -61,45 +61,40 @@ class SimpleVisualiser(GraphVisualisation):
                     link.target = nodesGraph[link.target];
                 });
 
-                var force = d3.layout.force() //kreiranje force layout-a
-                    .size([2000, 1000]) //raspoloziv prostor za iscrtavanje
-                    .nodes(d3.values(nodesGraph)) //dodaj nodove
-                    .links(links) //dodaj linkove
-                    .on("tick", tick) //sta treba da se desi kada su izracunate nove pozicija elemenata
-                    .linkDistance(600) //razmak izmedju elemenata
-                    .charge(-550)//koliko da se elementi odbijaju
-                    .gravity(0.5)
-                    .start(); //pokreni izracunavanje pozicija
-
                 var svg = d3.select('#mainView').call(d3.behavior.zoom().on("zoom", function () {
                                         svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
                                 })).append('g');
 
-                // add the links
+                var force = d3.layout.force()
+                    .charge(-550)
+                    .linkDistance(600)
+                    .size([2000, 1000])
+                    .nodes(d3.values(nodesGraph)) 
+                    .links(links) 
+                    .on("tick", tick) 
+                    .gravity(0.5)
+                    .start(); 
+
                 var link = svg.selectAll('.link')
                     .data(links)
                     .enter().append('line')
                     .attr('class', 'link');
 
-                // add the nodes
                 var node = svg.selectAll('.node')
-                    .data(force.nodes()) //add
+                    .data(force.nodes())
                     .enter().append('g')
                     .attr('class', 'node')
                     .attr('id', function(d){return d.id;})
-                    .on('click',function(){
-                    nodeClick(this);
-                    });
-                d3.selectAll('.node').each(function(d){nodeView(d, '#003B73');});
+                    .on('click', clicked);
+                d3.selectAll('.node').each(function(d){nodeView(d, '#595959');});
 
                 function nodeView(d, color){
                     var width=30;
                     var textSize=12;
 
-                    //Ubacivanje kruga
                     d3.select("g#"+d.id).append('circle').
                     attr('cx',0).attr('cy', 0).attr('r', width).attr('fill', color);
-                    //Ubacivanje naziva prodavnice ili artikla
+                    
                     d3.select("g#"+d.id).append('text').attr('x', 0).attr('y', 4)
                     .attr('text-anchor','middle')
                     .attr('font-size',textSize).attr('font-family','poppins')
@@ -116,6 +111,33 @@ class SimpleVisualiser(GraphVisualisation):
                         .attr('x2', function(d) { return d.target.x; })
                         .attr('y2', function(d) { return d.target.y; });
 
+                }
+                
+                function clicked(el){
+                    console.log("USAO U CLICKED")
+                    var message = "";
+                    message += "ID:" + el.id + ", ";
+                    if(current != null) {
+                        d3.selectAll('.node').each(function(d){nodeView(d, '#595959');});
+                        nodeView(nodesGraph[current.id.replace("ID_", "")], '#1a324c')
+                    }
+                    var node = nodesGraph[el.id.replace("ID_", "")];
+                    current = node;
+                    nodeView(current, '#1a324c')
+                    for(var i=0;i<node.attributes.length;i++) {
+                        message += node.attributes[i] + ", ";
+                    }
+                    console.log("PORUKA: " + message)
+                    alert(message)
+                    const wait = (n) => new Promise((resolve) => setTimeout(resolve, n));
+                    const changeBackColor = async () => {
+                      await wait(5000);
+                      nodeView(node, '#595959')
+                      node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
+                    };
+                    // call the async function
+                    changeBackColor();
+                    node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
                 }
                 
 
