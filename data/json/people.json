@@ -2,16 +2,18 @@
     {
       "@id": 1,
       "name": "Sergey Prokopyev",
+      "lastname": "sonja",
       "hobbies": ["football", "tennis"],
       "friends": [
-        {"@id":  2},
+        {"@id":  2,
+         "name": "lastname"},
         {"@id":  6},
         {"@id":  10}
       ]
     },
     {
       "@id": 2,
-      "name": "Dmitry Petelin",
+      "name": "lastname",
       "hobbies": ["football", "bowling"],
       "friends": [
         {"@id":  1},

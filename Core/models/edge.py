@@ -65,8 +65,11 @@ class Edge:
     @weight.setter
     def weight(self, weight):
         self._weight = weight
-
-
     def endpoints(self):
         return self._fromNode, self._toNode
 
+    def get_oppsite(self, node):
+        if self._toNode == node:
+            return self._fromNode
+        elif self._fromNode == node:
+            return self._toNode
