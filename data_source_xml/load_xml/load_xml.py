@@ -9,6 +9,7 @@ from models.edge import Edge as e
 from models.graph import Graph as g
 
 
+
 class XmlLoader(GraphLoading):
     def __init__(self):
         self.node_id = 0

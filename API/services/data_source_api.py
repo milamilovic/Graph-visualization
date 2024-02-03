@@ -7,5 +7,6 @@ from models.graph import Graph
 
 class GraphLoading(ServiceBase):
     @abstractmethod
-    def load_graph(self, path: str) -> Graph:
+
+    def load_graph(self, path: str):
         pass

@@ -1,11 +1,14 @@
 import os
 
 import pkg_resources
+from use_cases.config import CoreConfig
 
+cc = CoreConfig()
 
 def load():
     visualisers = []
     loaders = []
+    # cc = CoreConfig()
 
     for ep in pkg_resources.iter_entry_points(group='visualizer'):
         print(ep)
@@ -21,18 +24,23 @@ def load():
         plugin = p()
         loaders.append(plugin)
 
+    cc.set_plugin(loaders, visualisers)
     return visualisers, loaders
 
 
-def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, request):
-    for p in loaders:
-        if p.identifier() == "json_loader":
-            graph = p.load_graph("../data/json/movies.json")
-            visualize(visualizers, selected_visualizer, graph, request)
-        elif p.identifier() == "xml_loader":
-            graph = p.load_graph("../data/xml/flights.xml")
-            print("xml loader prikazuje")
 
+def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, path, request):
+    graph = None
+    # cc = CoreConfig()
+    for l in loaders:
+        print(selected_data_source)
+        if l.identifier() == selected_data_source:
+            graph = l.load_graph(path)
+            cc.setGraph(graph)
+            print(graph)
+            print("LOAD",len(graph.nodes))
+
+    visualize(visualizers, selected_visualizer, graph, request)
 
 def visualize(visualisers, selected_visualizer, graph, request):
     for v in visualisers:
@@ -41,3 +49,4 @@ def visualize(visualisers, selected_visualizer, graph, request):
                 os.path.dirname(__file__), "../../../../graph_explorer/application/templates", "mainView.html"))
             with open(path, 'w') as file:
                 file.write(v.visualize(graph, request))
+
