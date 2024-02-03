@@ -68,11 +68,11 @@ class SimpleVisualiser(GraphVisualisation):
                 var force = d3.layout.force()
                     .charge(-550)
                     .linkDistance(600)
-                    .size([2000, 1000])
+                    .size([1500, 800])
                     .nodes(d3.values(nodesGraph)) 
                     .links(links) 
                     .on("tick", tick) 
-                    .gravity(0.5)
+                    .gravity(0.3)
                     .start(); 
 
                 var link = svg.selectAll('.link')
@@ -101,6 +101,8 @@ class SimpleVisualiser(GraphVisualisation):
                     .attr('fill','white').text(d.id);
                 }
 
+                while (force.alpha() > force.alphaMin()) { force.tick(); ticked(); }
+
                 function tick(e) {
 
                     node.attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")";})
@@ -111,6 +113,11 @@ class SimpleVisualiser(GraphVisualisation):
                         .attr('x2', function(d) { return d.target.x; })
                         .attr('y2', function(d) { return d.target.y; });
 
+                }
+
+                function ticked() {
+                    // console.log("Ticked");
+                    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
                 }
                 
                 function clicked(el){
