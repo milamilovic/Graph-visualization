@@ -1,6 +1,6 @@
 from services.data_source_api import GraphLoading
 
-from Core.models.graph import Graph
+from models.graph import Graph
 
 
 class XmlLoader(GraphLoading):
