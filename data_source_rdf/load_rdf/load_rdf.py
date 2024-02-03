@@ -55,7 +55,7 @@ class RDFLoader(GraphLoading):
             to_node = self.create_node(o)
             self.create_edge(p, from_node, to_node)
 
-    def load_graph(self, path: str):
+    def load_graph(self, path: str) -> Graph:
         self.graph = g.Graph()
         data = self.load_data(path)
         self.make_graph(data)
