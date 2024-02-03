@@ -31,35 +31,71 @@ class JsonLoader(GraphLoading):
 
     def make_graph(self, data):
         self._graph = Graph()
-        nodes = self.create_movie_nodes(data)
-        self.connect_movies_with_same_actors(nodes)
+        self.create_nodes(data)
+        self.create_edges(self._graph.nodes)
         return self._graph
 
-    def create_movie_nodes(self, data):
-        nodes = []
+    def create_nodes(self, data):
         for item in data:
             if isinstance(item, dict):
-                movie_node = Node(None)
-                movie_node.id = self.next_id_node()
-                movie_node.add_attribute("id", movie_node.id)
+                self.build_node(item)
 
-                for key, value in item.items():
-                    movie_node.add_attribute(key, value)
+    def build_node(self, item):
+        build_node = Node(None)
+        build_node.id = self.next_id_node()
+        build_node.add_attribute("id", build_node .id)
 
-                nodes.append(movie_node)
-                self.add_node(movie_node)
-        return nodes
-
-    def connect_movies_with_same_actors(self, nodes):
-        for i in range(len(nodes)):
-            actors_i = set(nodes[i].attributes.get("actors", []))
-            for j in range(i + 1, len(nodes)):
-                actors_j = set(nodes[j].attributes.get("actors", []))
-                common_actors = actors_i.intersection(actors_j)
-                if common_actors:
-                    edge = Edge(self.next_id_edge(), nodes[i], nodes[j], nodes[j].attributes["title"], True)
-                    nodes[i].add_edge(edge)
+        for key, value in item.items():
+            build_node .add_attribute(key, value)
+            if isinstance(value, dict):
+                new_node = self.build_node(value)
+                edge = Edge(self.next_id_edge(), build_node , new_node, key, False)
+                build_node.add_edge(edge)
+                self._graph.add_edge(edge)
+            if isinstance(value,list) and isinstance(value[0],dict):
+                for v in value:
+                    new_node = self.build_node(v)
+                    edge = Edge(self.next_id_edge(), build_node, new_node, key, False)
+                    build_node.add_edge(edge)
                     self._graph.add_edge(edge)
+
+        self.add_node(build_node)
+        return build_node
+
+    def create_edges(self, nodes):
+        for i in range(len(nodes)):
+            attributes_i = nodes[i].attributes
+            for j in range(i + 1, len(nodes)):
+                attributes_j = nodes[j].attributes
+                common_attributes = set(attributes_i.keys()).intersection(attributes_j.keys())
+                for attribute in common_attributes:
+                    values_i = attributes_i[attribute]
+                    values_j = attributes_j[attribute]
+
+                    common_values = self.get_common_values(values_i, values_j)
+                    if common_values:
+                        edge = Edge(self.next_id_edge(), nodes[i], nodes[j], attribute, False)
+                        nodes[i].add_edge(edge)
+                        self._graph.add_edge(edge)
+
+    def get_common_values(self, values_i, values_j):
+        if isinstance(values_i, (set, list)) and isinstance(values_j, (set, list)):
+            if isinstance(values_i[0], dict):
+                return set()
+            return set(values_i).intersection(set(values_j))
+        else:
+            if isinstance(values_i, dict):
+                return set()
+            if values_i == values_j:
+                return {values_i}
+        return set()
+
+    def connect_references(self, node, ids):
+        for id in ids:
+            node_j = self._graph.get_node(id)
+            edge = Edge(self.next_id_edge(), node, node_j, "reference", False)
+            node.add_edge(edge)
+            self._graph.add_edge(edge)
 
     def add_node(self, node):
         already_in_graph = self._graph.contains_node(node)
