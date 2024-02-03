@@ -46,6 +46,7 @@ class RDFLoader(GraphLoading):
         new_edge = e.Edge(self.edge_id, from_node, to_node, name, True)
         from_node.add_edge(new_edge)
         to_node.add_edge(new_edge)
+        self.graph.add_edge(new_edge)
 
     def make_graph(self, data):
         for line in data:
@@ -54,10 +55,11 @@ class RDFLoader(GraphLoading):
             to_node = self.create_node(o)
             self.create_edge(p, from_node, to_node)
 
-    def load_graph(self, path: str) -> bool:
+    def load_graph(self, path: str):
         self.graph = g.Graph()
         data = self.load_data(path)
         self.make_graph(data)
+        return self.graph
 
     def graph(self):
         return self.graph

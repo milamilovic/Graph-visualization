@@ -32,13 +32,20 @@ class Graph:
         self._edges = edges
 
     def add_node(self, node):
+        # if node in self._nodes:
+        #     return
         self._nodes.append(node)
 
     def add_edge(self, edge):
         self._edges.append(edge)
 
     def contains_node(self, node):
-        for n in self._nodes:
-            if not DeepDiff(n.attributes, node.attributes):
-                return True
-        return False
+       for n in self._nodes:
+          if not DeepDiff(n.attributes, node.attributes):
+             return True
+       return False
+
+    def get_node(self, id):
+        for node in self._nodes:
+            if node.attributes["id"] == id:
+                return node
