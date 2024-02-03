@@ -28,6 +28,7 @@ def load():
     return visualisers, loaders
 
 
+
 def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, path, request):
     graph = None
     # cc = CoreConfig()
@@ -40,13 +41,7 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
             print("LOAD",len(graph.nodes))
 
     visualize(visualizers, selected_visualizer, graph, request)
-#     for v in visualizers:
-#         print(selected_visualizer)
-#         if v.identifier() == selected_visualizer:
-#             # pozvati iscrtavanje
-#             # v.visualize(graph)
-#             pass
-          
+
 def visualize(visualisers, selected_visualizer, graph, request):
     for v in visualisers:
         if v.identifier() == selected_visualizer:
