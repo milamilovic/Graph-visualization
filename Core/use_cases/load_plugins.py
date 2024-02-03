@@ -40,7 +40,7 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
             print(graph)
             print("LOAD",len(graph.nodes))
 
-    visualize(visualizers, selected_visualizer, graph, request)
+    visualize(visualizers, selected_visualizer, graph, request)
 
 def visualize(visualisers, selected_visualizer, graph, request):
     for v in visualisers:

@@ -86,20 +86,6 @@
             </div>
             </form>
         </nav>
-        <nav  id="sidebar2" class="sidebar">
-            <div class="sidebar-header">
-                <p>Tree view</p>
-                <div id="divTree" class="treeview-animated w-20 border mx-4 my-4">
-                    {% block treeview %}
-                    {% endblock %}
-                </div>
-                <p>Bird view</p>
-                <div id="divBird" class="treeview-animated w-20 border mx-4 my-4">
-                    {% block birdview %}
-                    {% endblock %}
-                </div>
-            </div>
-        </nav>
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -116,10 +102,26 @@
         </div>
 
     </div>
-    <div class="top">
-        <svg width="100%" height="100%" id="mainView">
-        </svg>
-        {% include 'mainView.html' %}
+
+    <div class="top_wrapper">
+        <div class="top">
+            <svg width="100%" height="100%" id="mainView">
+            </svg>
+            {% include 'mainView.html' %}
+        </div>
+        <div class="top2">
+            <div class="sidebar-header">
+                <p>Tree view</p>
+                <div id="divTree" class="treeview-animated w-20 border mx-4 my-4">
+                    {% block treeview %}
+                    {% endblock %}
+                </div>
+                <p>Bird view</p>
+                <div id="divBird" class="treeview-animated w-20 border mx-4 my-4">
+                    <svg height="100%" width="100%" id="birdView"></svg>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 </body>
