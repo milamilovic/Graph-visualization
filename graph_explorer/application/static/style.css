@@ -73,7 +73,7 @@ a[data-toggle="collapse"]{
   box-sizing: border-box;
 }
 
-form.s input[type=search], form.file input[type=search] {
+div.s input[type=search], div.file input[type=search] {
   padding: 10px;
   font-size: 16px;
   border: 1px solid grey;
@@ -85,7 +85,7 @@ form.s input[type=search], form.file input[type=search] {
 }
 
 
-form.s button, form.file button {
+div.s button, div.file > div > button {
   float: left;
   width: 20%;
   padding: 8px;
@@ -99,17 +99,17 @@ form.s button, form.file button {
     margin-bottom: 5px;
 }
 
-form.s button:hover {
+div.s button:hover {
   background: #254367;
 }
 
-form.s::after {
+div.s::after {
   content: "";
   clear: both;
   display: table;
 }
 
-form.filter input[type=search] {
+div.filter > div > input[type=search] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -121,7 +121,7 @@ form.filter input[type=search] {
 }
 
 
-form.filter button {
+div.filter > div > button {
   float: left;
   width: 20%;
   padding: 8px;
@@ -135,14 +135,8 @@ form.filter button {
     margin-bottom: 5px;
 }
 
-form.file button:hover, form.filter button:hover {
+div.file > div > button:hover, div.filter > div > button:hover {
   background: #254367;
-}
-
-form.f::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 .prikaz{
@@ -214,5 +208,5 @@ form.f::after {
     background-color: #e2e2e1;
     font-size: 14px;
     padding: 2px;
-    height: 40px;
+    height:40px;
 }

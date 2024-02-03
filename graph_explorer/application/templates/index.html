@@ -41,45 +41,49 @@
             crossorigin="anonymous"></script>
     <div class="wrapper">
         <nav id="sidebar1" class="sidebar">
+        <form  method="post" action="{% url 'load_data_source' %}">
             <div class="sidebar-header">
                 <h3>Graph visualizer</h3>
             </div>
             <div class="flex-container">
-            {% for v in visualisers %}
-              <div class="flex-item-left">{{v.name}}</div>
-             {% endfor %}
+                <select class="form-control" id="visualizer" name="visualizer">
+                  {% for v in visualisers %}
+                    <option name="source" class="options" value="{{v.identifier}}">{{v.name}}</option>
+                  {% endfor %}
+                </select>
             </div>
-            <form class="s" method ="post">
-                 {% csrf_token %}
+            <div class="s" >
+                {% csrf_token %}
                 <div class="input-group rounded">
                     <input type="search" placeholder="Search" name="pretraga">
                      <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
-            </form>
-            <form class="file" method ="post">
-                 {% csrf_token %}
-                <div class="input-group rounded">
-                    <input type="search" placeholder="Input file path" name="file">
-                     <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
-            <form class="filter" method ="post">
-                 {% csrf_token %}
+            </div>
+            <div class="filter">
+                {% csrf_token %}
                 <div class="input-group rounded">
                     <input type="search" placeholder="Filter (e.g. age>20)" name="filter">
                      <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
-            </form>
-            <form method="post" action="{% url 'load_data_source' %}">
+            </div>
+            <div class="file">
+                {% csrf_token %}
+                <div class="input-group rounded">
+                    <input type="search" placeholder="Input file path" name="file">
+                     <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <div>
                 {% csrf_token %}
                 <div class="form-group">
                     <select class="form-control" id="dataSource" name="parser">
-                          {% for l in loaders %}
-                            <option name="source" class="options" value="{{l.identifier}}">{{l.name}}</option>
-                          {% endfor %}
+                      {% for l in loaders %}
+                        <option name="source" class="options" value="{{l.identifier}}">{{l.name}}</option>
+                      {% endfor %}
                     </select>
                     <button class="flex-item-left" type="submit">Apply plugin</button>
                 </div>
+            </div>
             </form>
         </nav>
         <nav  id="sidebar2" class="sidebar">

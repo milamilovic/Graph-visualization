@@ -29,6 +29,8 @@ class Graph:
         self._edges = edges
 
     def add_node(self, node):
+        # if node in self._nodes:
+        #     return
         self._nodes.append(node)
 
     def add_edge(self, edge):
@@ -36,3 +38,8 @@ class Graph:
 
     def contains_node(self, node):
         return node in self._nodes
+
+    def get_node(self, id):
+        for node in self._nodes:
+            if node.attributes["id"] == id:
+                return node
