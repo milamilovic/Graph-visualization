@@ -240,3 +240,11 @@ div.file > div > button:hover, div.filter > div > button:hover {
     height: 100%;
     display: flex;
 }
+
+#birdView {
+}
+
+svg {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}

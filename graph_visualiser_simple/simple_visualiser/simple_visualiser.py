@@ -54,6 +54,37 @@ class SimpleVisualiser(GraphVisualisation):
                     $(document).ready(function(){
                         init();
                     });
+                    
+                    var aspectRatioHeight = null;
+                     var aspectRatioWidth = null;
+                     var home = null;
+                     var minimapDimensions = null;
+                     var minimapViewer = null;
+                     var minimapViewerDimensions = null;
+                     var birdViewWidth = null;
+                     var birdViewHeight = null;
+                     var viewportDimensions = null;
+                     var zoom = null;
+
+                     viewportDimensions = {
+                       height: 500,
+                       width: 600
+                     }
+
+                     aspectRatioHeight = 0.25;
+                     aspectRatioWidth = 0.25;
+
+                     minimapDimensions = {
+                       height: viewportDimensions.height * aspectRatioHeight,
+                       width: viewportDimensions.width * aspectRatioWidth
+                     };
+
+                     minimapViewerDimensions = {
+                       height: minimapDimensions.height,
+                       width: minimapDimensions.width
+                     }
+
+                     home = d3.select("#mainView").node();
 
                     var current = null;
     
@@ -155,6 +186,27 @@ class SimpleVisualiser(GraphVisualisation):
                     
                     function init() {
                         let main = d3.select("#mainView").node();
+
+                        let graphWidth = d3.select("#mainView").select("g").node().getBBox().width;
+                        let graphHeight = d3.select("#mainView").select("g").node().getBBox().height;
+
+                        let mainWidth = document.getElementById("top").offsetWidth;
+                        let mainHeight = document.getElementById("top").offsetHeight;
+
+                        let scaleWidth = mainWidth / graphWidth;
+                        let scaleHeight = mainHeight / graphHeight;
+
+                        let scale = 0;
+                        if(scaleWidth < scaleHeight){
+                            scale = scaleWidth;
+                        }else{
+                            scale = scaleHeight;
+                        }
+
+                        let x = d3.select("#mainView").select("g").node().getBBox().x;
+                        let y = d3.select("#mainView").select("g").node().getBBox().y;
+                        d3.select("#mainView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
+
             
                         let observer = new MutationObserver(observer_callback);
             
@@ -176,33 +228,75 @@ class SimpleVisualiser(GraphVisualisation):
                     function observer_callback() {
                         let main = d3.select("#mainView").html();
                         d3.select("#birdView").html(main);
-            
-                        let mainWidth = d3.select("#mainView").select("g").node().getBBox().width;
-                        let mainHeight = d3.select("#mainView").select("g").node().getBBox().height;
-            
+
+                        let graphWidth = d3.select("#mainView").select("g").node().getBBox().width;
+                        let graphHeight = d3.select("#mainView").select("g").node().getBBox().height;
+
+                        let mainWidth = document.getElementById("top").offsetWidth;
+                        let mainHeight = document.getElementById("top").offsetHeight;
+
+
+                        birdViewWidth = document.getElementById("divBird").offsetWidth
+                        birdViewHeight = document.getElementById("divBird").offsetHeight
+
+
                         let birdWidth = $("#birdView")[0].clientWidth;
                         let birdHeight = $("#birdView")[0].clientHeight;
-            
-                        let scaleWidth = birdWidth / mainWidth;
-                        let scaleHeight = birdHeight / mainHeight;
-            
+
+
+                        let scaleWidth = birdWidth / graphWidth;
+                        let scaleHeight = birdHeight / graphHeight;
+
                         let scale = 0;
                         if(scaleWidth < scaleHeight){
                             scale = scaleWidth;
                         }else{
                             scale = scaleHeight;
                         }
-                        
+
                         let x = d3.select("#birdView").select("g").node().getBBox().x;
                         let y = d3.select("#birdView").select("g").node().getBBox().y;
                         d3.select("#birdView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
-                    
-                        let viewportRect = d3.select("#viewportRect");
-                        viewportRect
-                            .attr("x", x) // Postavljanje x položaja pravougaonika u bird view-u
-                            .attr("y", y) // Postavljanje y položaja pravougaonika u bird view-u
-                            .attr("width", mainWidth * scale) // Postavljanje širine pravougaonika u bird view-u
-                            .attr("height", mainHeight * scale); // Postavljanje visine pravougaonika u bird view-u
+
+
+                        let graphPosition = null;
+
+                        let element = document.getElementsByTagName('g')[0];
+
+                        if (element) {
+                            // Dobijanje dimenzija i pozicije elementa u odnosu na prozor pregledaca
+                            let rect = element.getBoundingClientRect();
+
+                            // Relativna pozicija u odnosu na prozor pregledaca
+                            graphPosition = {
+                                top: rect.top,
+                                left: rect.left,
+                                width: rect.width,
+                                height: rect.height
+                            };
+
+                            console.log(graphPosition.top)
+
+                            // minimapViewerDimensions.top = graphPosition.top * birdHeight/mainHeight;
+                            // minimapViewerDimensions.left = graphPosition.left * birdWidth/mainWidth;
+                        }
+
+                        minimapViewerDimensions.height = birdHeight;
+                        minimapViewerDimensions.width = birdWidth;
+
+
+                         //Add a white viewbox onto the top of the minimap
+                         minimapViewer = d3.select("#birdView")
+                           .append("rect")
+                           .attr("fill", "transparent")
+                           .attr("height", minimapViewerDimensions.height + "px")
+                           .attr("width", minimapViewerDimensions.width + "px")
+                           // .attr("x", minimapViewerDimensions.left+"px")
+                           // .attr("y", minimapViewerDimensions.top+"px")
+                           .attr("id", "minimapViewer")
+                           .attr("stroke", 'red')
+                           .attr("stroke-width", 2);
+
                     }
                 </script>
                 """
