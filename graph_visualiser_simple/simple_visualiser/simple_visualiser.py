@@ -275,8 +275,6 @@ class SimpleVisualiser(GraphVisualisation):
                                 height: rect.height
                             };
 
-                            console.log(graphPosition.top)
-
                             // minimapViewerDimensions.top = graphPosition.top * birdHeight/mainHeight;
                             // minimapViewerDimensions.left = graphPosition.left * birdWidth/mainWidth;
                         }

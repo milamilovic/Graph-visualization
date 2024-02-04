@@ -63,8 +63,22 @@
                     });
     
                     var svg = d3.select('#mainView').call(d3.behavior.zoom().on("zoom", function () {
-                                            svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
-                                    })).append('g');
+                        svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+                        updateBirdViewRect(d3.event);
+                        })).append('g');
+
+                    function updateBirdViewRect(event) {
+                        // Dohvatanje pravougaonika u birdView
+                        let rect = d3.select("#divBird").select('rect');
+                        console.log("ZUMIRA")
+
+                        minimapViewerDimensions.height = rect.node().getBBox().height / event.scale;
+                        minimapViewerDimensions.width = rect.node().getBBox().width / event.scale;
+
+                        // Pomeranje pravougaonika u skladu sa pan transformacijom
+                        // d3.select("#birdView").select('rect').attr("x", document.getElementsByTagName("rect")[0].x - event.transform.x / event.translate)
+                        //     .attr("y", document.getElementsByTagName("rect")[0].y - event.transform.y / event.translate);
+                    }
     
                     var force = d3.layout.force()
                         .charge(-550)
@@ -169,25 +183,25 @@
                             scale = scaleHeight;
                         }
 
+                        let birdWidth = $("#birdView")[0].clientWidth;
+                        let birdHeight = $("#birdView")[0].clientHeight;
+
+                        minimapViewerDimensions.height = birdHeight;
+                        minimapViewerDimensions.width = birdWidth;
+
                         let x = d3.select("#mainView").select("g").node().getBBox().x;
                         let y = d3.select("#mainView").select("g").node().getBBox().y;
                         d3.select("#mainView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
 
             
                         let observer = new MutationObserver(observer_callback);
-            
+
                         observer.observe(main, {
                             subtree: true,
                             attributes: true,
                             childList: true,
                             characterData: true
                         });
-                        
-                        d3.select("#birdView")
-                        .append("rect")
-                        .attr("id", "viewportRect")
-                        .attr("stroke", "red") // Boja ivica pravougaonika u bird view-u
-                        .attr("stroke-width", 2);
                         
                     }
             
@@ -241,24 +255,25 @@
                                 height: rect.height
                             };
 
-                            console.log(graphPosition.top)
-
                             // minimapViewerDimensions.top = graphPosition.top * birdHeight/mainHeight;
                             // minimapViewerDimensions.left = graphPosition.left * birdWidth/mainWidth;
                         }
 
-                        minimapViewerDimensions.height = birdHeight;
-                        minimapViewerDimensions.width = birdWidth;
 
+                        let rect = d3.select("#divBird").select('rect');
+
+
+                        console.log("UPDATE OBSERVER")
 
                          //Add a white viewbox onto the top of the minimap
                          minimapViewer = d3.select("#birdView")
                            .append("rect")
                            .attr("fill", "transparent")
-                           .attr("height", minimapViewerDimensions.height + "px")
-                           .attr("width", minimapViewerDimensions.width + "px")
+                           .attr("height", minimapViewerDimensions.height)
+                           .attr("width", minimapViewerDimensions.width)
                            // .attr("x", minimapViewerDimensions.left+"px")
                            // .attr("y", minimapViewerDimensions.top+"px")
+                             .attr("position", "absolute")
                            .attr("id", "minimapViewer")
                            .attr("stroke", 'red')
                            .attr("stroke-width", 2);
