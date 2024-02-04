@@ -32,22 +32,11 @@ class XmlLoader(GraphLoading):
         root = tree.getroot()
         data = []
         for row_elem in root.findall('.//row'):
-            # planes_text = row_elem.find('planes').text
-            # planes_text_cleaned = re.sub(r'(["\[\],])', '', planes_text)
-            # planes_list = ast.literal_eval(planes_text_cleaned)
-            data_row = {
-                'airline_iata': row_elem.find('airline_iata').text,
-                'airline_icao': row_elem.find('airline_icao').text,
-                'departure_airport_iata': row_elem.find('departure_airport_iata').text,
-                'departure_airport_icao': row_elem.find('departure_airport_icao').text,
-                'arrival_airport_iata': row_elem.find('arrival_airport_iata').text,
-                'arrival_airport_icao': row_elem.find('arrival_airport_icao').text,
-                'codeshare': row_elem.find('codeshare').text.lower() == 'true',
-                'transfers': int(row_elem.find('transfers').text)
-                # 'planes': planes_list
-            }
+            data_row = {}
+            for field in row_elem:
+                data_row[field.tag] = field.text
             data.append(data_row)
-        print("ucitano letova: ")
+        print("ucitano cvorova: ")
         print(len(data))
         return data
 
