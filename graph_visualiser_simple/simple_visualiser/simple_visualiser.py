@@ -164,6 +164,13 @@ class SimpleVisualiser(GraphVisualisation):
                             childList: true,
                             characterData: true
                         });
+                        
+                        d3.select("#birdView")
+                        .append("rect")
+                        .attr("id", "viewportRect")
+                        .attr("stroke", "red") // Boja ivica pravougaonika u bird view-u
+                        .attr("stroke-width", 2);
+                        
                     }
             
                     function observer_callback() {
@@ -189,6 +196,13 @@ class SimpleVisualiser(GraphVisualisation):
                         let x = d3.select("#birdView").select("g").node().getBBox().x;
                         let y = d3.select("#birdView").select("g").node().getBBox().y;
                         d3.select("#birdView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
+                    
+                        let viewportRect = d3.select("#viewportRect");
+                        viewportRect
+                            .attr("x", x) // Postavljanje x položaja pravougaonika u bird view-u
+                            .attr("y", y) // Postavljanje y položaja pravougaonika u bird view-u
+                            .attr("width", mainWidth * scale) // Postavljanje širine pravougaonika u bird view-u
+                            .attr("height", mainHeight * scale); // Postavljanje visine pravougaonika u bird view-u
                     }
                 </script>
                 """
