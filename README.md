@@ -1,4 +1,5 @@
 # Graph explorer
+
 ### Team
 - Mila Milović SV22/2021
 - Sonja Baljicki SV59/2021
@@ -9,36 +10,49 @@
 
 ## Getting Started 
 
-#### Python 3.9 or higher
+
+### Python 3.9 or higher
 
 You can check your Python version by running the following command: 
+
 `python --version`
 
 
-#### Activating the Virtual Environment
+
+### Activating the Virtual Environment
 
 To be able to use pip command you can install it following these instructions
 
 [https://pip.pypa.io/en/stable/installing/](https://pip.pypa.io/en/stable/installing/)
 
 
+
+
 To activate the virtual environment using the provided scripts, follow these instructions based on your operating system:
+
 `source venv_name/bin/activate`  for Linux
+
 `venv_name\Scripts\activate`  for Windows
+
 
 
 ### Installation 
 
  To install all the packages, run following commands inside venv: 
+ 
 `call install.bat` 
+
 To check if packages are installed, run following command: 
+
 `pip list`
+
 
 
 ### Running
 
 Navigate to Django project graph_expolrer and run command:
 `python manage.py runserver`
+
 
 
 ### Usage
