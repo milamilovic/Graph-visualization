@@ -55,11 +55,11 @@ def search(request):
         attrs = node.attributes
         for key in attrs.keys():
             if isinstance(attrs[key], (int, str)):
-                if key == query or (str(query) in str(attrs[key])):
+                if key == query or (str(query).lower() in str(attrs[key]).lower()):
                     graph.add_node(node)
             elif isinstance(attrs[key], list):
                 contains_dict = any(isinstance(item, dict) for item in attrs[key])
-                if not contains_dict and any(key == query or str(query) in str(item) for item in attrs[key]):
+                if not contains_dict and any(key == query or str(query).lower() in str(item).lower() for item in attrs[key]):
                     graph.add_node(node)
                 if contains_dict:
                     if key == query:
@@ -93,6 +93,22 @@ def check_value(param, operator, value):
     return result
 
 
+def split_query(query):
+    operators_pattern = re.compile(r'==|>|>=|<|<=|!=')
+
+    operators = operators_pattern.findall(query)
+    substrings = operators_pattern.split(query)
+
+    result = []
+    for i in range(len(substrings) - 1):
+        result.append(substrings[i])
+        result.append(operators[i])
+
+    result.append(substrings[-1])
+
+    return result
+
+
 def filter(request):
     loaders = apps.get_app_config('application').get_plugins()[0]
     visualisers = apps.get_app_config('application').get_plugins()[1]
@@ -101,7 +117,7 @@ def filter(request):
 
     query = request.POST['filter']
 
-    query_split = query.split(' ')
+    query_split = split_query(query)
     attribute = query_split[0]
     operator = query_split[1]
     value = query_split[2]
