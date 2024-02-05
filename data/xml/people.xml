@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <row id="1">
+        <name>Sergey Prokopyev</name>
+        <lastname>sonja</lastname>
+        <hobbies>[football, tennis]</hobbies>
+        <friends>2</friends>
+    </row>
+    <row id="2">
+        <name>lastname</name>
+        <hobbies>[football, tennis]</hobbies>
+        <friends>1</friends>
+    </row>
+    <row id="3">
+        <name>Frank Rubio</name>
+        <hobbies>[painting, singing]</hobbies>
+    </row>
+</root>
