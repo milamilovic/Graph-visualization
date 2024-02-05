@@ -19,8 +19,8 @@
 
                 var current = null;
 
-                var nodesGraph = JSON.parse("{\u0022142\u0022: {\u0022id\u0022: \u0022ID_142\u0022, \u0022attributes\u0022: [\u0022id: 142\u0022, \u0022title: Midnight in Paris\u0022, \u0022year: 2011\u0022, \u0022actors: [\u0027Owen Wilson\u0027, \u0027Rachel McAdams\u0027, \u0027Kurt Fuller\u0027, \u0027Mimi Kennedy\u0027, \u0027Michael Sheen\u0027, \u0027Nina Arianda\u0027]\u0022], \u0022weight\u0022: 1}, \u0022169\u0022: {\u0022id\u0022: \u0022ID_169\u0022, \u0022attributes\u0022: [\u0022id: 169\u0022, \u0022title: Before Midnight\u0022, \u0022year: 2013\u0022, \u0022actors: [\u0027Ethan Hawke\u0027, \u0027Julie Delpy\u0027, \u0027Seamus Davey\u002DFitzpatrick\u0027, \u0027Ariane Labed\u0027]\u0022], \u0022weight\u0022: 1}}");                
-                var links= JSON.parse("[]");
+                var nodesGraph = JSON.parse("{\u00220\u0022: {\u0022id\u0022: \u0022ID_0\u0022, \u0022attributes\u0022: [\u0022name: Sergey Prokopyev\u0022, \u0022lastname: sonja\u0022, \u0022hobbies: [football, tennis]\u0022, \u0022friends: 2\u0022], \u0022weight\u0022: 1}, \u00221\u0022: {\u0022id\u0022: \u0022ID_1\u0022, \u0022attributes\u0022: [\u0022name: lastname\u0022, \u0022hobbies: [football, tennis]\u0022, \u0022friends: 1\u0022], \u0022weight\u0022: 1}, \u00222\u0022: {\u0022id\u0022: \u0022ID_2\u0022, \u0022attributes\u0022: [\u0022name: Frank Rubio\u0022, \u0022hobbies: [painting, singing]\u0022], \u0022weight\u0022: 1}}");                
+                var links= JSON.parse("[{\u0022source\u0022: 0, \u0022target\u0022: 1}]");
 
                 links.forEach(function(link) {
                     link.source = nodesGraph[link.source];
@@ -81,7 +81,6 @@
 
                 }
 
-
                 function ticked() {
                     // console.log("Ticked");
                     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
@@ -113,7 +112,6 @@
                     changeBackColor();
                     node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
                 }
-
                 
 
                 </script>
