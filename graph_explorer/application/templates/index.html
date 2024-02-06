@@ -41,30 +41,35 @@
             crossorigin="anonymous"></script>
     <div class="wrapper">
         <nav id="sidebar1" class="sidebar">
-        <form  method="post" action="{% url 'load_data_source' %}">
             <div class="sidebar-header">
                 <h3>Graph visualizer</h3>
             </div>
+            <div class="s">
+                <form  method ="post" action="{% url 'search' %}">
+                {% csrf_token %}
+                    <div class="input-group rounded">
+                        <input type="search" placeholder="Search" name="search">
+                         <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+            </form>
+            </div>
+            <div class="s">
+                <form method ="post" action="{% url 'filter' %}">
+                 {% csrf_token %}
+                    <div class="input-group rounded">
+                        <input type="search" placeholder="Filter (e.g. age>20)" name="filter">
+                         <button type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+            </form>
+            </div>
+
+        <form  method="post" action="{% url 'load_data_source' %}">
             <div class="flex-container">
                 <select class="form-control" id="visualizer" name="visualizer">
                   {% for v in visualisers %}
                     <option name="source" class="options" value="{{v.identifier}}">{{v.name}}</option>
                   {% endfor %}
                 </select>
-            </div>
-            <div class="s" >
-                {% csrf_token %}
-                <div class="input-group rounded">
-                    <input type="search" placeholder="Search" name="pretraga">
-                     <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-            <div class="filter">
-                 {% csrf_token %}
-                <div class="input-group rounded">
-                    <input type="search" placeholder="Filter (e.g. age>20)" name="filter">
-                     <button type="submit"><i class="fa fa-search"></i></button>
-                </div>
             </div>
             <div class="file">
                  {% csrf_token %}

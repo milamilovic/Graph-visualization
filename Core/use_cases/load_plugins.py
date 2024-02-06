@@ -5,6 +5,7 @@ from use_cases.config import CoreConfig
 
 cc = CoreConfig()
 
+
 def load():
     visualisers = []
     loaders = []
@@ -36,13 +37,16 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
         print(selected_data_source)
         if l.identifier() == selected_data_source:
             graph = l.load_graph(path)
-            cc.setGraph(graph)
-            print(graph)
-            print("LOAD",len(graph.nodes))
+            # print(graph)
+            # print("LOAD", len(graph.nodes))
 
-    visualize(visualizers, selected_visualizer, graph, request)
+    visualize(visualizers, selected_visualizer, graph,request)
+
+
 
 def visualize(visualisers, selected_visualizer, graph, request):
+    cc.setGraph(graph)
+    cc.set_current_visualizer(selected_visualizer)
     for v in visualisers:
         if v.identifier() == selected_visualizer:
             path = os.path.abspath(os.path.join(

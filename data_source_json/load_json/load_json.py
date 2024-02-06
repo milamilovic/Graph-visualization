@@ -37,22 +37,21 @@ class JsonLoader(GraphLoading):
 
     def create_nodes(self, data):
         for item in data:
-            if isinstance(item, dict):
-                self.build_node(item)
+            self.build_node(item)
 
     def build_node(self, item):
         build_node = Node(None)
         build_node.id = self.next_id_node()
-        build_node.add_attribute("id", build_node .id)
+        build_node.add_attribute("id", build_node.id)
 
         for key, value in item.items():
-            build_node .add_attribute(key, value)
+            build_node.add_attribute(key, value)
             if isinstance(value, dict):
                 new_node = self.build_node(value)
-                edge = Edge(self.next_id_edge(), build_node , new_node, key, False)
+                edge = Edge(self.next_id_edge(), build_node, new_node, key, False)
                 build_node.add_edge(edge)
                 self._graph.add_edge(edge)
-            if isinstance(value,list) and isinstance(value[0],dict):
+            if isinstance(value, list) and isinstance(value[0], dict):
                 for v in value:
                     new_node = self.build_node(v)
                     edge = Edge(self.next_id_edge(), build_node, new_node, key, False)
@@ -89,13 +88,6 @@ class JsonLoader(GraphLoading):
             if values_i == values_j:
                 return {values_i}
         return set()
-
-    def connect_references(self, node, ids):
-        for id in ids:
-            node_j = self._graph.get_node(id)
-            edge = Edge(self.next_id_edge(), node, node_j, "reference", False)
-            node.add_edge(edge)
-            self._graph.add_edge(edge)
 
     def add_node(self, node):
         already_in_graph = self._graph.contains_node(node)

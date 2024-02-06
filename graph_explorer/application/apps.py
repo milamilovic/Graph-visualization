@@ -23,3 +23,7 @@ class ApplicationConfig(AppConfig):
     def get_plugins(self):
         self.core_instance.load_saved_instances()
         return self.core_instance.loader_instances, self.core_instance.visualizer_instances
+
+    def get_current_visualizer(self):
+        self.core_instance.load_saved_instances()
+        return self.core_instance.current_visualizer
