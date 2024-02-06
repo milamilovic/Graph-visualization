@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63f2fe94-087c-45aa-82ac-2e33354daee2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/xml/flights2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/xml/people.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SOK.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/services/data_source_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/services/data_source_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/models/edge.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/models/edge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/models/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/models/graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/models/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/models/node.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/use_cases/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/use_cases/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/use_cases/load_plugins.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/use_cases/load_plugins.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/movies.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/movies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/json/people.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/json/people.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/xml/flights.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/xml/flights.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_source_json/load_json/load_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_source_json/load_json/load_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_source_rdf/load_rdf/load_rdf.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_source_rdf/load_rdf/load_rdf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_source_xml/load_xml/load_xml.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_source_xml/load_xml/load_xml.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/templates/mainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/templates/mainView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/config.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/config.pkl" afterDir="false" />
-    </list>
+    <list default="true" id="fe4cc5c0-b560-40b9-a5e6-aebc8e765141" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +29,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging feature/blockVisualiser",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

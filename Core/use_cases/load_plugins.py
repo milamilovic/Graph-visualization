@@ -44,7 +44,6 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
 
 
 
-
 def visualize(visualisers, selected_visualizer, graph, request):
     cc.setGraph(graph)
     cc.set_current_visualizer(selected_visualizer)

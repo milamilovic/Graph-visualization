@@ -1,7 +1,7 @@
 body{
     font-family: "Roboto Light", sans-serif;
-    background: #fafafa;
-    height: 1000px;
+    background: #e5e5e580;
+    height: 90vh;
 }
 
 p{
@@ -219,5 +219,32 @@ div.file > div > button:hover, div.filter > div > button:hover {
 
 .top {
     height: 100%;
+    width: 80%;
+}
+
+.top2{
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #5b5b5b;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: #e2e2e1;
+}
+
+.top_wrapper{
     width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#birdView {
+}
+
+svg {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
