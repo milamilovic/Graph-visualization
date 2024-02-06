@@ -19,8 +19,8 @@
 
                 var current = null;
 
-                var nodesGraph = JSON.parse("{\u00220\u0022: {\u0022id\u0022: \u0022ID_0\u0022, \u0022attributes\u0022: [\u0022name: Sergey Prokopyev\u0022, \u0022lastname: sonja\u0022, \u0022hobbies: [football, tennis]\u0022, \u0022friends: 2\u0022], \u0022weight\u0022: 1}, \u00221\u0022: {\u0022id\u0022: \u0022ID_1\u0022, \u0022attributes\u0022: [\u0022name: lastname\u0022, \u0022hobbies: [football, tennis]\u0022, \u0022friends: 1\u0022], \u0022weight\u0022: 1}, \u00222\u0022: {\u0022id\u0022: \u0022ID_2\u0022, \u0022attributes\u0022: [\u0022name: Frank Rubio\u0022, \u0022hobbies: [painting, singing]\u0022], \u0022weight\u0022: 1}}");                
-                var links= JSON.parse("[{\u0022source\u0022: 0, \u0022target\u0022: 1}]");
+                var nodesGraph = JSON.parse("{\u0022180\u0022: {\u0022id\u0022: \u0022ID_180\u0022, \u0022attributes\u0022: [\u0022id: 180\u0022, \u0022title: Soul\u0022, \u0022year: 2020\u0022, \u0022actors: [\u0027Jamie Foxx\u0027, \u0027Tina Fey\u0027, \u0027Graham Norton\u0027, \u0027Rachel House\u0027]\u0022], \u0022weight\u0022: 1}}");                
+                var links= JSON.parse("[]");
 
                 links.forEach(function(link) {
                     link.source = nodesGraph[link.source];

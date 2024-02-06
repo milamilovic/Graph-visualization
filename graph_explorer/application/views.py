@@ -3,6 +3,8 @@ import re
 from django.shortcuts import render
 from django.apps.registry import apps
 from use_cases import load_plugins
+from use_cases import filter
+from use_cases import search as search_core
 from models.graph import Graph
 from models.node import Node
 from models.edge import Edge
@@ -49,48 +51,11 @@ def search(request):
     query = request.POST['search']
 
     nodes = base_graph.nodes
-    graph = Graph()
 
-    for node in nodes:
-        attrs = node.attributes
-        for key in attrs.keys():
-            if isinstance(attrs[key], (int, str)):
-                if key == query or (str(query).lower() in str(attrs[key]).lower()):
-                    graph.add_node(node)
-            elif isinstance(attrs[key], list):
-                contains_dict = any(isinstance(item, dict) for item in attrs[key])
-                if not contains_dict and any(key == query or str(query).lower() in str(item).lower() for item in attrs[key]):
-                    graph.add_node(node)
-                if contains_dict:
-                    if key == query:
-                        graph.add_node(node)
-
-    for node in graph.nodes:
-        for edge in node.edges:
-            if graph.contains_node(edge.toNode) and graph.contains_node(edge.fromNode):
-                graph.add_edge(edge)
+    graph = search_core.search_graph(query, nodes)
 
     load_plugins.visualize(visualisers, current_visualizer, graph, request)
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
-
-
-def check_value(param, operator, value):
-    if operator == '==':
-        result = value == param
-    elif operator == '>':
-        result = value > param
-    elif operator == '>=':
-        result = value >= param
-    elif operator == '<':
-        result = value < param
-    elif operator == '<=':
-        result = value <= param
-    elif operator == '!=':
-        result = value != param
-    else:
-        raise ValueError("Invalid operator")
-
-    return result
 
 
 def split_query(query):
@@ -109,7 +74,7 @@ def split_query(query):
     return result
 
 
-def filter(request):
+def filter_graph(request):
     loaders = apps.get_app_config('application').get_plugins()[0]
     visualisers = apps.get_app_config('application').get_plugins()[1]
     base_graph = apps.get_app_config('application').get_base_graph()
@@ -123,42 +88,8 @@ def filter(request):
     value = query_split[2]
 
     nodes = base_graph.nodes
-    graph = Graph()
 
-    for node in nodes:
-        attrs = node.attributes
-        for key in attrs.keys():
-            if key == attribute:
-                if isinstance(attrs[key], int):
-                    result = check_value(int(value), operator, int(attrs[key]))
-                    if result:
-                        graph.add_node(node)
-                if isinstance(attrs[key], str):
-                    result = check_value(str(value), operator, str(attrs[key]))
-                    if result:
-                        graph.add_node(node)
-
-                final_result = True
-                if isinstance(attrs[key], list):
-                    contains_dict = any(isinstance(item, dict) for item in attrs[key])
-                    if not contains_dict and key == attribute:
-                        for item in attrs[key]:
-                            if isinstance(item, int):
-                                result = check_value(int(value), operator, int(item))
-                                if not result:
-                                    final_result = False
-                            if isinstance(item, str):
-                                result = check_value(str(value), operator, str(item))
-                                if not result:
-                                    final_result = False
-
-                        if final_result:
-                            graph.add_node(node)
-
-    for node in graph.nodes:
-        for edge in node.edges:
-            if graph.contains_node(edge.toNode) and graph.contains_node(edge.fromNode):
-                graph.add_edge(edge)
+    graph = filter.filter_graph(attribute, operator, value, nodes)
 
     load_plugins.visualize(visualisers, current_visualizer, graph, request)
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
