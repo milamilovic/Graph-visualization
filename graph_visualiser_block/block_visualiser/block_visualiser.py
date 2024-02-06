@@ -1,5 +1,4 @@
 import json
-
 from django.template import engines
 from services.visualiser_api import GraphVisualisation
 
@@ -12,17 +11,16 @@ class BlockVisualiser(GraphVisualisation):
         return "Block view"
 
     def visualize(self, graph, request):
-        nodes = []
+        nodes = {}
         for n in graph.nodes:
             attributes = []
             for attribute_key in n.attributes.keys():
                 attributes.append(attribute_key + ": " + str(n.attributes[attribute_key]))
-
-            node_data = {
+            nodes[n.id] = {
+                "id": "ID_" + str(n.id),
                 "attributes": attributes,
                 "weight": 1
             }
-            nodes.append(node_data)
 
         links = []
         for e in graph.edges:
@@ -62,30 +60,25 @@ class BlockVisualiser(GraphVisualisation):
                 link.target = nodesGraph[link.target];
             });
 
-            var force = d3.layout.force()
-                .size([4000, 2000])
-                .nodes(d3.values(nodesGraph))
-                .links(links)
-                .on("tick", tick)
-                .linkDistance(2000)  
-                .charge(-1000)
-                .gravity(0.1)
-                .start();
-
             var svg = d3.select('#mainView').call(d3.behavior.zoom().on("zoom", function () {
                 svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
             })).append('g');
 
-            var padding = 20; 
-            var alpha = 0.1;  
+            var force = d3.layout.force()
+                .charge(-1000)
+                .linkDistance(2000)
+                .size([4000, 2000])
+                .nodes(d3.values(nodesGraph))
+                .links(links)
+                .on("tick", tick)
+                .gravity(0.1)
+                .start();
 
-            // add the links
             var link = svg.selectAll('.link')
                 .data(links)
                 .enter().append('line')
                 .attr('class', 'link');
 
-            // add the block nodes
             var blockNode = svg.selectAll('.block')
                 .data(force.nodes())
                 .enter().append('g')
@@ -93,9 +86,7 @@ class BlockVisualiser(GraphVisualisation):
                 .attr('id', function(d) {
                     return d.id;
                 })
-                .on('click', function(d) {
-                    nodeClick(d);
-                });
+                .on('click', clicked);
 
             blockNode.each(function(d) {
                 var textLength = d.attributes.join(" ").length;
@@ -108,7 +99,7 @@ class BlockVisualiser(GraphVisualisation):
                     .attr('y', -lines * lineHeight / 2)  
                     .attr('width', width)
                     .attr('height', lines * lineHeight)
-                    .attr('fill', '#5b5b5b')  
+                    .attr('fill', '#5b5b5b')
                     .attr('stroke', '#003B73');
 
                 d3.select(this).selectAll('text.attribute')
@@ -128,39 +119,15 @@ class BlockVisualiser(GraphVisualisation):
                     });
             });
 
-            function nodeClick(d) {
+            function clicked(d) {
+                var message = "ID: " + d.id + ", ";
                 for (var i = 0; i < d.attributes.length; i++) {
-                    message += d.attributes[i] + "\\n";
+                    message += d.attributes[i] + ", ";
                 }
                 alert(message);
             }
 
-            function tick(e) {
-                var k = 6 * e.alpha;
-                force.nodes().forEach(function(o, i) {
-                    o.y += k * (i & 1 ? 1 : -1);
-                });
-
-                force.nodes().forEach(function(o, i) {
-                    force.nodes().forEach(function(d, j) {
-                        if (i !== j) {
-                            var deltaX = o.x - d.x;
-                            var deltaY = o.y - d.y;
-                            var distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                            var minDistance = o.radius + d.radius + padding;
-
-                            if (distance < minDistance) {
-                                var displacementX = (minDistance - distance) * (deltaX / distance) * alpha;
-                                var displacementY = (minDistance - distance) * (deltaY / distance) * alpha;
-                                o.x += displacementX;
-                                o.y += displacementY;
-                                d.x -= displacementX;
-                                d.y -= displacementY;
-                            }
-                        }
-                    });
-                });
-
+            function tick() {
                 blockNode.attr("transform", function(d) {
                     return "translate(" + d.x + "," + d.y + ")";
                 });
