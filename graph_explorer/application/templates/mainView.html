@@ -72,8 +72,36 @@
                         let rect = d3.select("#divBird").select('rect');
                         console.log("ZUMIRA")
 
-                        minimapViewerDimensions.height = rect.node().getBBox().height / event.scale;
-                        minimapViewerDimensions.width = rect.node().getBBox().width / event.scale;
+                        const action = d3.event.type === "zoom" && d3.event?.sourceEvent?.type === "mousemove" ? "PAN": "ZOOM";
+
+                        if(action==="ZOOM") {
+
+                            minimapViewerDimensions.height = rect.node().getBBox().height / event.scale;
+                            minimapViewerDimensions.width = rect.node().getBBox().width / event.scale;
+                        } else {
+
+                            console.log(event.translate)
+
+                            minimapViewerDimensions.top = -event.translate[1];
+                            minimapViewerDimensions.left = -event.translate[0];
+
+                            let graphWidth = d3.select("#mainView").select("g").node().getBBox().width;
+                            let graphHeight = d3.select("#mainView").select("g").node().getBBox().height;
+
+                            let mainWidth = document.getElementById("top").offsetWidth;
+                            let mainHeight = document.getElementById("top").offsetHeight;
+
+                            birdViewWidth = document.getElementById("divBird").offsetWidth
+                            birdViewHeight = document.getElementById("divBird").offsetHeight
+
+                            let scaleWidth = (birdViewWidth / mainWidth) / event.scale;
+                            let scaleHeight = (birdViewHeight / mainHeight) / event.scale;
+
+                            minimapViewerDimensions.top = minimapViewerDimensions.top * scaleHeight
+                            minimapViewerDimensions.left = minimapViewerDimensions.left * scaleWidth
+                            console.log("top: " + minimapViewerDimensions.top)
+                            console.log("scale: " + scaleHeight)
+                        }
 
                         // Pomeranje pravougaonika u skladu sa pan transformacijom
                         // d3.select("#birdView").select('rect').attr("x", document.getElementsByTagName("rect")[0].x - event.transform.x / event.translate)
@@ -188,6 +216,8 @@
 
                         minimapViewerDimensions.height = birdHeight;
                         minimapViewerDimensions.width = birdWidth;
+                        minimapViewerDimensions.top = 0;
+                        minimapViewerDimensions.left = 0;
 
                         let x = d3.select("#mainView").select("g").node().getBBox().x;
                         let y = d3.select("#mainView").select("g").node().getBBox().y;
@@ -262,17 +292,14 @@
 
                         let rect = d3.select("#divBird").select('rect');
 
-
-                        console.log("UPDATE OBSERVER")
-
                          //Add a white viewbox onto the top of the minimap
                          minimapViewer = d3.select("#birdView")
                            .append("rect")
                            .attr("fill", "transparent")
                            .attr("height", minimapViewerDimensions.height)
                            .attr("width", minimapViewerDimensions.width)
-                           // .attr("x", minimapViewerDimensions.left+"px")
-                           // .attr("y", minimapViewerDimensions.top+"px")
+                           .attr("x", minimapViewerDimensions.left)
+                           .attr("y", minimapViewerDimensions.top)
                              .attr("position", "absolute")
                            .attr("id", "minimapViewer")
                            .attr("stroke", 'red')
