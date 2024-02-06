@@ -97,8 +97,50 @@ class SimpleVisualiser(GraphVisualisation):
                     });
     
                     var svg = d3.select('#mainView').call(d3.behavior.zoom().on("zoom", function () {
-                                            svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
-                                    })).append('g');
+                        svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+                        updateBirdViewRect(d3.event);
+                        })).append('g');
+
+                    function updateBirdViewRect(event) {
+                        // Dohvatanje pravougaonika u birdView
+                        let rect = d3.select("#divBird").select('rect');
+                        console.log("ZUMIRA")
+
+                        const action = d3.event.type === "zoom" && d3.event?.sourceEvent?.type === "mousemove" ? "PAN": "ZOOM";
+
+                        if(action==="ZOOM") {
+
+                            minimapViewerDimensions.height = rect.node().getBBox().height / event.scale;
+                            minimapViewerDimensions.width = rect.node().getBBox().width / event.scale;
+                        } else {
+
+                            console.log(event.translate)
+
+                            minimapViewerDimensions.top = -event.translate[1];
+                            minimapViewerDimensions.left = -event.translate[0];
+
+                            let graphWidth = d3.select("#mainView").select("g").node().getBBox().width;
+                            let graphHeight = d3.select("#mainView").select("g").node().getBBox().height;
+
+                            let mainWidth = document.getElementById("top").offsetWidth;
+                            let mainHeight = document.getElementById("top").offsetHeight;
+
+                            birdViewWidth = document.getElementById("divBird").offsetWidth
+                            birdViewHeight = document.getElementById("divBird").offsetHeight
+
+                            let scaleWidth = (birdViewWidth / mainWidth) / event.scale;
+                            let scaleHeight = (birdViewHeight / mainHeight) / event.scale;
+
+                            minimapViewerDimensions.top = minimapViewerDimensions.top * scaleHeight
+                            minimapViewerDimensions.left = minimapViewerDimensions.left * scaleWidth
+                            console.log("top: " + minimapViewerDimensions.top)
+                            console.log("scale: " + scaleHeight)
+                        }
+
+                        // Pomeranje pravougaonika u skladu sa pan transformacijom
+                        // d3.select("#birdView").select('rect').attr("x", document.getElementsByTagName("rect")[0].x - event.transform.x / event.translate)
+                        //     .attr("y", document.getElementsByTagName("rect")[0].y - event.transform.y / event.translate);
+                    }
     
                     var force = d3.layout.force()
                         .charge(-550)
@@ -203,25 +245,27 @@ class SimpleVisualiser(GraphVisualisation):
                             scale = scaleHeight;
                         }
 
+                        let birdWidth = $("#birdView")[0].clientWidth;
+                        let birdHeight = $("#birdView")[0].clientHeight;
+
+                        minimapViewerDimensions.height = birdHeight;
+                        minimapViewerDimensions.width = birdWidth;
+                        minimapViewerDimensions.top = 0;
+                        minimapViewerDimensions.left = 0;
+
                         let x = d3.select("#mainView").select("g").node().getBBox().x;
                         let y = d3.select("#mainView").select("g").node().getBBox().y;
                         d3.select("#mainView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
 
             
                         let observer = new MutationObserver(observer_callback);
-            
+
                         observer.observe(main, {
                             subtree: true,
                             attributes: true,
                             childList: true,
                             characterData: true
                         });
-                        
-                        d3.select("#birdView")
-                        .append("rect")
-                        .attr("id", "viewportRect")
-                        .attr("stroke", "red") // Boja ivica pravougaonika u bird view-u
-                        .attr("stroke-width", 2);
                         
                     }
             
@@ -279,18 +323,18 @@ class SimpleVisualiser(GraphVisualisation):
                             // minimapViewerDimensions.left = graphPosition.left * birdWidth/mainWidth;
                         }
 
-                        minimapViewerDimensions.height = birdHeight;
-                        minimapViewerDimensions.width = birdWidth;
 
+                        let rect = d3.select("#divBird").select('rect');
 
                          //Add a white viewbox onto the top of the minimap
                          minimapViewer = d3.select("#birdView")
                            .append("rect")
                            .attr("fill", "transparent")
-                           .attr("height", minimapViewerDimensions.height + "px")
-                           .attr("width", minimapViewerDimensions.width + "px")
-                           // .attr("x", minimapViewerDimensions.left+"px")
-                           // .attr("y", minimapViewerDimensions.top+"px")
+                           .attr("height", minimapViewerDimensions.height)
+                           .attr("width", minimapViewerDimensions.width)
+                           .attr("x", minimapViewerDimensions.left)
+                           .attr("y", minimapViewerDimensions.top)
+                             .attr("position", "absolute")
                            .attr("id", "minimapViewer")
                            .attr("stroke", 'red')
                            .attr("stroke-width", 2);
