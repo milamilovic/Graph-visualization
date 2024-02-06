@@ -41,3 +41,9 @@ class Node:
 
     def contains_edge(self, edge):
         return edge in self._edges
+
+    def tags(self):
+        return set(self._attributes.keys())
+
+    def get_values_for_tag(self, tag):
+        return [self._attributes[tag]]

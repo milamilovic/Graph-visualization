@@ -36,7 +36,8 @@ class CoreConfig:
             data = {
                 'loader_instances': self.loader_instances,
                 'visualizer_instances': self.visualizer_instances,
-                'base_graph': self.base_graph
+                'base_graph': self.base_graph,
+                'current_visualizer': self.current_visualizer
             }
             pickle.dump(data, file)
 
@@ -48,6 +49,7 @@ class CoreConfig:
                 self.loader_instances = data.get('loader_instances', [])
                 self.visualizer_instances = data.get('visualizer_instances', [])
                 self.base_graph = data.get('base_graph', None)
+                self.current_visualizer = data.get('current_visualizer', None)
         except(EOFError):
             pass
         except ( FileNotFoundError):
@@ -59,6 +61,9 @@ class CoreConfig:
         self.base_graph = graph_instance
         self.save_instances()
 
+    def set_current_visualizer(self, visualizer):
+        self.current_visualizer = visualizer
+        self.save_instances()
 
     def set_plugin(self, l, v):
         # loaded_plugins = load()

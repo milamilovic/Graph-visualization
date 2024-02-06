@@ -49,3 +49,9 @@ class Graph:
         for node in self._nodes:
             if node.attributes["id"] == id:
                 return node
+
+    def has_edge_between_nodes(self, node1, node2):
+        for edge in self._edges:
+            if edge.fromNode == node1 and edge.toNode == node2:
+                return True
+        return False
