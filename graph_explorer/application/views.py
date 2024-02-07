@@ -37,8 +37,6 @@ def load_data_source(request):
         load_plugins.load_data_source(loaders, visualisers, selected_parser, selected_visualizer, selected_file,
                                       request)
         graph = apps.get_app_config('application').get_base_graph()
-        print(graph)
-        print("VIEWS", len(graph.nodes))
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
 
 

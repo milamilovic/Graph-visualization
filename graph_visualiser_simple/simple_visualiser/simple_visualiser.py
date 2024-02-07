@@ -143,7 +143,7 @@ class SimpleVisualiser(GraphVisualisation):
                     }
     
                     var force = d3.layout.force()
-                        .charge(-550)
+                        .charge(-1)
                         .linkDistance(600)
                         .size([1500, 800])
                         .nodes(d3.values(nodesGraph)) 
@@ -257,6 +257,14 @@ class SimpleVisualiser(GraphVisualisation):
                         let y = d3.select("#mainView").select("g").node().getBBox().y;
                         d3.select("#mainView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
 
+
+                        setTimeout(() => {
+                            zoom_in_main()
+                        }, 2000);
+
+                        setTimeout(() => {
+                            zoom_in_main()
+                        }, 4000);
             
                         let observer = new MutationObserver(observer_callback);
 
@@ -267,6 +275,31 @@ class SimpleVisualiser(GraphVisualisation):
                             characterData: true
                         });
                         
+                    }
+
+                    function zoom_in_main() {
+                        graphWidth = d3.select("#mainView").select("g").node().getBBox().width;
+                        graphHeight = d3.select("#mainView").select("g").node().getBBox().height;
+
+                        mainWidth = document.getElementById("top").offsetWidth;
+                        mainHeight = document.getElementById("top").offsetHeight;
+
+                        scaleWidth = mainWidth / graphWidth;
+                        scaleHeight = mainHeight / graphHeight;
+
+                        scale = 0;
+                        if(scaleWidth < scaleHeight){
+                            scale = scaleWidth;
+                        }else{
+                            scale = scaleHeight;
+                        }
+
+                        x = d3.select("#mainView").select("g").node().getBBox().x;
+                        y = d3.select("#mainView").select("g").node().getBBox().y;
+                        d3.select("#mainView").select('g').attr("transform", "translate ("+[-x*scale, -y*scale]+") scale("+ scale +")");
+                    
+                        force = force.charge(-550)
+                        force.start()
                     }
             
                     function observer_callback() {
