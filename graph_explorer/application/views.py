@@ -52,20 +52,26 @@ def load_workspace(request):
 
     workspaces = apps.get_app_config('application').get_workspaces()
     current_visualizer = apps.get_app_config('application').get_current_visualizer()
-    apps.get_app_config('application').load_tree()
-    tree = apps.get_app_config('application').tree
 
-    print("aaa", workspaces)
 
     selected_workspace = request.POST.get('workspaces_select')
     print("OPTION", selected_workspace)
     w.set_current_workspace(selected_workspace)
     print("Graf", workspaces[int(selected_workspace)])
+    tree = None
 
     if current_visualizer is not None:
         load_plugins.visualize(visualisers, current_visualizer, workspaces[int(selected_workspace)], request)
+        apps.get_app_config('application').load_tree()
+        tree = apps.get_app_config('application').tree
 
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces, 'tree':tree})
+    if tree is None:
+        return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces,
+                                          'tree': tree})
+
+
 
 
 def load_data_source(request):
