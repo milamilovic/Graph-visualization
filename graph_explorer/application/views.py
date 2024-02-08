@@ -1,7 +1,11 @@
+import os
 import re
 
-from django.shortcuts import render
+from django.core.mail.backends import console
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from django.apps.registry import apps
+from django.template.loader import render_to_string
 from use_cases import load_plugins
 from use_cases import filter
 from use_cases import search as search_core
@@ -18,9 +22,10 @@ def index(request):
 
     loaders = apps.get_app_config('application').get_plugins()[0]
     visualisers = apps.get_app_config('application').get_plugins()[1]
+    tree = apps.get_app_config("application").tree
     print("Visualisers", visualisers)
     print("Loaders", loaders)
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'tree': tree})
 
 
 def load_data_source(request):
@@ -39,7 +44,9 @@ def load_data_source(request):
         graph = apps.get_app_config('application').get_base_graph()
         print(graph)
         print("VIEWS", len(graph.nodes))
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
+        apps.get_app_config('application').load_tree()
+        tree = apps.get_app_config('application').tree
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders,'tree': tree})
 
 
 def search(request):
@@ -55,6 +62,7 @@ def search(request):
     graph = search_core.search_graph(query, nodes)
 
     load_plugins.visualize(visualisers, current_visualizer, graph, request)
+
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
 
 
@@ -92,4 +100,43 @@ def filter_graph(request):
     graph = filter.filter_graph(attribute, operator, value, nodes)
 
     load_plugins.visualize(visualisers, current_visualizer, graph, request)
+
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders})
+
+
+def load_relationships_of_vertex(request, id):
+    tree = apps.get_app_config('application').tree
+    if id == "favicon.ico":
+        return
+    id, option = id.split(";")
+
+    if option == "select":
+        if (id.isnumeric()):
+            id = int(id)
+        print(id)
+        node = tree.find_node_by_vertex_id(id)
+        node.open()
+        node.open_parents()
+        tree.last_opened = node.id
+        tree_view_html = render_to_string(os.path.abspath(os.path.join(
+            os.path.dirname(__file__), "templates", "treeView.html")), {'tree': tree})
+
+        return HttpResponse(tree_view_html)
+
+    elif option == "open":
+        node = tree.find_tree_node(int(id))
+        if node.opened:
+            if len(node.children) != 0:
+                node.close()
+            if node.parent:
+                tree.last_opened = node.parent.id
+        else:
+            node.open()
+            tree.last_opened = node.id
+
+        tree_view_html = render_to_string(os.path.abspath(os.path.join(
+            os.path.dirname(__file__), "templates", "treeView.html")), {'tree': tree})
+
+        return HttpResponse(tree_view_html)
+    else:
+        return redirect("index")

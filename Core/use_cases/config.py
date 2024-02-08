@@ -5,6 +5,8 @@ import pickle
 from services.data_source_api import GraphLoading
 from services.visualiser_api import GraphVisualisation
 
+from models.tree import Forest, TreeNode
+
 
 class CoreConfig:
     loader_instances = []
@@ -12,6 +14,7 @@ class CoreConfig:
     base_graph = None
     current_graph = None
     current_visualizer = None
+    tree = None
     config_file_path = 'config.pkl'
 
     def _init_(self):
@@ -37,7 +40,8 @@ class CoreConfig:
                 'loader_instances': self.loader_instances,
                 'visualizer_instances': self.visualizer_instances,
                 'base_graph': self.base_graph,
-                'current_visualizer': self.current_visualizer
+                'current_visualizer': self.current_visualizer,
+                "tree": self.tree
             }
             pickle.dump(data, file)
 
@@ -50,12 +54,12 @@ class CoreConfig:
                 self.visualizer_instances = data.get('visualizer_instances', [])
                 self.base_graph = data.get('base_graph', None)
                 self.current_visualizer = data.get('current_visualizer', None)
+                self.tree = data.get('tree', None)
         except(EOFError):
             pass
-        except ( FileNotFoundError):
+        except (FileNotFoundError):
             self.loader_instances = []
-            self.visualizer_instances=[]
-
+            self.visualizer_instances = []
 
     def setGraph(self, graph_instance):
         self.base_graph = graph_instance
@@ -74,3 +78,33 @@ class CoreConfig:
         self.visualizer_instances = v
         #
         self.save_instances()
+
+    def load_tree(self):
+        self.tree = Forest(None)
+        for vertex in find_root_vertices(self.current_graph.find_subgraphs()):
+            self.tree.roots.append(TreeNode(vertex, None, "vertex"))
+
+
+def find_root_vertices(subgraphs):
+    roots = []
+    for graph in subgraphs:
+        if graph.is_graph_directed():
+            contour_nodes = graph.find_conture_nodes()
+            hanging_nodes = graph.find_not_destination_vertices()
+            roots += merge_lists_distinct(contour_nodes, hanging_nodes)
+        else:
+            if graph.has_cycle_undirected():
+                if len(graph.vertices) > 0:
+                    roots.append(graph.vertices[0])
+            else:
+                for v in graph.vertices:
+                    if v.degree() <= 1:
+                        roots.append(v)
+    return roots
+
+
+def merge_lists_distinct(first_list, second_list):
+    for i in first_list:
+        if i not in second_list:
+            second_list.append(i)
+    return second_list
