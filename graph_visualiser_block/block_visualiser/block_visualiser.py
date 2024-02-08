@@ -1,5 +1,4 @@
 import json
-
 from django.template import engines
 from services.visualiser_api import GraphVisualisation
 
@@ -12,17 +11,16 @@ class BlockVisualiser(GraphVisualisation):
         return "Block view"
 
     def visualize(self, graph, request):
-        nodes = []
+        nodes = {}
         for n in graph.nodes:
             attributes = []
             for attribute_key in n.attributes.keys():
                 attributes.append(attribute_key + ": " + str(n.attributes[attribute_key]))
-
-            node_data = {
+            nodes[n.id] = {
+                "id": "ID_" + str(n.id),
                 "attributes": attributes,
                 "weight": 1
             }
-            nodes.append(node_data)
 
         links = []
         for e in graph.edges:
@@ -62,30 +60,25 @@ class BlockVisualiser(GraphVisualisation):
                 link.target = nodesGraph[link.target];
             });
 
-            var force = d3.layout.force()
-                .size([4000, 2000])
-                .nodes(d3.values(nodesGraph))
-                .links(links)
-                .on("tick", tick)
-                .linkDistance(2000)  
-                .charge(-1000)
-                .gravity(0.1)
-                .start();
-
             var svg = d3.select('#mainView').call(d3.behavior.zoom().on("zoom", function () {
                 svg.attr("transform", " translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
             })).append('g');
 
-            var padding = 20; 
-            var alpha = 0.1;  
+            var force = d3.layout.force()
+                .charge(-1000)
+                .linkDistance(2000)
+                .size([4000, 2000])
+                .nodes(d3.values(nodesGraph))
+                .links(links)
+                .on("tick", tick)
+                .gravity(0.1)
+                .start();
 
-            // add the links
             var link = svg.selectAll('.link')
                 .data(links)
                 .enter().append('line')
                 .attr('class', 'link');
 
-            // add the block nodes
             var blockNode = svg.selectAll('.block')
                 .data(force.nodes())
                 .enter().append('g')
@@ -93,9 +86,7 @@ class BlockVisualiser(GraphVisualisation):
                 .attr('id', function(d) {
                     return d.id;
                 })
-                .on('click', function(d) {
-                    nodeClick(d);
-                });
+                .on('click', clicked);
 
             blockNode.each(function(d) {
                 var textLength = d.attributes.join(" ").length;
@@ -108,7 +99,7 @@ class BlockVisualiser(GraphVisualisation):
                     .attr('y', -lines * lineHeight / 2)  
                     .attr('width', width)
                     .attr('height', lines * lineHeight)
-                    .attr('fill', '#5b5b5b')  
+                    .attr('fill', '#5b5b5b')
                     .attr('stroke', '#003B73');
 
                 d3.select(this).selectAll('text.attribute')
@@ -127,40 +118,115 @@ class BlockVisualiser(GraphVisualisation):
                         return attribute;
                     });
             });
+            
+            function nodeView(d, color){
+                var width=30;
+                var textSize=12;
 
-            function nodeClick(d) {
-                for (var i = 0; i < d.attributes.length; i++) {
-                    message += d.attributes[i] + "\\n";
-                }
-                alert(message);
+                d3.select("g#"+d.id).selectAll("rect").remove(); // Remove existing rectangles
+                d3.select("g#"+d.id).selectAll("text").remove(); // Remove existing text
+
+                var textLength = d.attributes.join(" ").length;
+                var lineHeight = 15;  
+                var lines = Math.ceil(textLength / 20);  
+                var rectWidth = Math.max(100, textLength * 5);  
+
+                d3.select("g#"+d.id).append('rect')
+                    .attr('x', -rectWidth / 2)
+                    .attr('y', -lines * lineHeight / 2)  
+                    .attr('width', rectWidth)
+                    .attr('height', lines * lineHeight)
+                    .attr('fill', color)
+                    .attr('stroke', '#003B73');
+
+                d3.select("g#"+d.id).selectAll('text.attribute')
+                    .data([d.id].concat(d.attributes))
+                    .enter()
+                    .append('text')
+                    .attr('x', 0)
+                    .attr('y', function(_, i) {
+                        return -lines * lineHeight / 2 + 15 + i * lineHeight;  
+                    })
+                    .attr('text-anchor', 'middle')
+                    .attr('font-size', 12)
+                    .attr('font-family', 'poppins')
+                    .attr('fill', 'white')
+                    .text(function(attribute) {
+                        return attribute;
+                    });
             }
 
-            function tick(e) {
-                var k = 6 * e.alpha;
-                force.nodes().forEach(function(o, i) {
-                    o.y += k * (i & 1 ? 1 : -1);
-                });
 
-                force.nodes().forEach(function(o, i) {
-                    force.nodes().forEach(function(d, j) {
-                        if (i !== j) {
-                            var deltaX = o.x - d.x;
-                            var deltaY = o.y - d.y;
-                            var distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                            var minDistance = o.radius + d.radius + padding;
+            function clicked(d) {
+                console.log("USAO U CLICKED")
+                var message = "";
+                message += "ID:" + d.id + ", ";
+                if(current != null) {
+                    // d3.selectAll('.node').each(function(d){nodeView(d, '#595959');});
+                    nodeView(nodesGraph[current.id.replace("ID_", "")], '#1a324c')
+                }
+                var node = nodesGraph[d.id.replace("ID_", "")];
+                current = node;
+                nodeView(current, '#1a324c')
+                for(var i=0;i<node.attributes.length;i++) {
+                    message += node.attributes[i] + ", ";
+                }
+                console.log("PORUKA: " + message)
+                alert(message)
+                
+                const id = d.id.replace("ID_", "");
+                const dynamicTreeContainer = document.getElementById('dynamic-tree');
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', `/${id};select`, true);
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                        dynamicTreeContainer.innerHTML = xhr.responseText;
 
-                            if (distance < minDistance) {
-                                var displacementX = (minDistance - distance) * (deltaX / distance) * alpha;
-                                var displacementY = (minDistance - distance) * (deltaY / distance) * alpha;
-                                o.x += displacementX;
-                                o.y += displacementY;
-                                d.x -= displacementX;
-                                d.y -= displacementY;
+                        const newToggles = dynamicTreeContainer.querySelectorAll('.node-toggle');
+                        newToggles.forEach(toggle => {
+                            toggle.addEventListener('click', function (event) {
+                                event.preventDefault();
+                                const newNode = this.parentNode;
+                                toggleNode(newNode);
+                            });
+                        });
+                        let nodesTree = document.querySelectorAll('.node-toggle');
+                        nodesTree.forEach(toggle => {
+                            toggle.addEventListener('click', function (event) {
+                                event.preventDefault();
+                                const node = this.parentNode;
+                                let newSelected = node.querySelector("#object-id").innerHTML;
+                                if (current != null) {
+                                    nodeView(current, "#003B73")
+                                }
+                                current = nodesGraph[newSelected];
+                                nodeView(current, "red");
+                            });
+                        });
+                        if (document.getElementById('last-opened-node') != null) {
+                            const lastOpenedNode = document.getElementById('last-opened-node').innerHTML;
+                            element = document.getElementById(lastOpenedNode);
+                            if (element) {
+                                scrollIfNeeded(element, document.getElementById('tree'));
+                                element.classList.add("selected-item");
                             }
                         }
-                    });
-                });
+                    }
+                };
+                xhr.send();
 
+                const wait = (n) => new Promise((resolve) => setTimeout(resolve, n));
+                const changeBackColor = async () => {
+                    await wait(5000);
+                    nodeView(d, '#595959');
+                    node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
+                };
+                changeBackColor();
+                node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
+            }
+
+            function tick() {
                 blockNode.attr("transform", function(d) {
                     return "translate(" + d.x + "," + d.y + ")";
                 });

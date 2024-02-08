@@ -9,4 +9,5 @@ urlpatterns = [
     path('workspace', views.workspace, name='workspace'),
     path('load_workspace', views.load_workspace, name='load_workspace'),
     path('filter', views.filter_graph, name='filter'),
+    path('<str:id>', views.load_relationships_of_vertex, name='alter_tree'),
 ]

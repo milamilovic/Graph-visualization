@@ -1,7 +1,11 @@
+import os
 import re
 
+from django.core.mail.backends import console
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.apps.registry import apps
+from django.template.loader import render_to_string
 from use_cases import load_plugins
 from use_cases import filter
 from use_cases import search as search_core
@@ -21,21 +25,24 @@ def index(request):
     loaders = apps.get_app_config('application').get_plugins()[0]
     visualisers = apps.get_app_config('application').get_plugins()[1]
     workspaces = apps.get_app_config('application').get_workspaces()
+    tree = apps.get_app_config("application").tree
 
     print("INDEX WORKSPACE", workspaces)
     print("Visualisers", visualisers)
     print("Loaders", loaders)
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces, 'tree':tree})
 
 
 def workspace(request):
     loaders = apps.get_app_config('application').get_plugins()[0]
     visualisers = apps.get_app_config('application').get_plugins()[1]
+    tree = apps.get_app_config("application").tree
+
 
     w.add_workspace()
     workspaces = apps.get_app_config('application').get_workspaces()
 
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces, 'tree':tree})
 
 
 def load_workspace(request):
@@ -45,6 +52,8 @@ def load_workspace(request):
 
     workspaces = apps.get_app_config('application').get_workspaces()
     current_visualizer = apps.get_app_config('application').get_current_visualizer()
+    apps.get_app_config('application').load_tree()
+    tree = apps.get_app_config('application').tree
 
     print("aaa", workspaces)
 
@@ -56,7 +65,7 @@ def load_workspace(request):
     if current_visualizer is not None:
         load_plugins.visualize(visualisers, current_visualizer, workspaces[int(selected_workspace)], request)
 
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces, 'tree':tree})
 
 
 def load_data_source(request):
@@ -71,9 +80,12 @@ def load_data_source(request):
         selected_parser = request.POST.get('parser')
         selected_visualizer = request.POST.get('visualizer')
         selected_file = request.POST.get('file')
+
         try:
             load_plugins.load_data_source(loaders, visualisers, selected_parser, selected_visualizer, selected_file,
                                           request)
+            apps.get_app_config('application').load_tree()
+            tree = apps.get_app_config('application').tree
         except:
             # bad formats
             pass
@@ -81,7 +93,8 @@ def load_data_source(request):
         # print(graph)
         # print("VIEWS", len(graph.nodes))
 
-    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+    return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces, 'tree':tree})
+
 
 
 def search(request):
@@ -100,6 +113,7 @@ def search(request):
 
     load_plugins.visualize(visualisers, current_visualizer, graph, request)
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+
 
 
 def split_query(query):
@@ -142,3 +156,43 @@ def filter_graph(request):
         load_plugins.visualize(visualisers, current_visualizer, base_graph, request)
 
     return render(request, "index.html", {'visualisers': visualisers, 'loaders': loaders, 'workspaces': workspaces})
+
+
+
+def load_relationships_of_vertex(request, id):
+    tree = apps.get_app_config('application').tree
+    if id == "favicon.ico":
+        return
+    id, option = id.split(";")
+
+    if option == "select":
+        if (id.isnumeric()):
+            id = int(id)
+        print(id)
+        node = tree.find_node_by_vertex_id(id)
+        node.open()
+        node.open_parents()
+        tree.last_opened = node.id
+        tree_view_html = render_to_string(os.path.abspath(os.path.join(
+            os.path.dirname(__file__), "templates", "treeView.html")), {'tree': tree})
+
+        return HttpResponse(tree_view_html)
+
+    elif option == "open":
+        node = tree.find_tree_node(int(id))
+        if node.opened:
+            if len(node.children) != 0:
+                node.close()
+            if node.parent:
+                tree.last_opened = node.parent.id
+        else:
+            node.open()
+            tree.last_opened = node.id
+
+        tree_view_html = render_to_string(os.path.abspath(os.path.join(
+            os.path.dirname(__file__), "templates", "treeView.html")), {'tree': tree})
+
+        return HttpResponse(tree_view_html)
+    else:
+        return redirect("index")
+
