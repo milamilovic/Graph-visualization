@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4880a81-a15a-45a5-aafe-f08f39ca5828" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/graph_explorer/application/static/birdView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="321d2d85-ecd2-496a-b83b-37f8ad192986" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/use_cases/load_plugins.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/use_cases/load_plugins.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/application/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_explorer/application/templates/mainView.html" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/application/templates/mainView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph_explorer/config.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/graph_explorer/config.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graph_visualiser_simple/simple_visualiser/simple_visualiser.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph_visualiser_simple/simple_visualiser/simple_visualiser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,31 +29,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging fix-filter__and__search",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature-bird__view__improvements&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13763.11" />
+        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c4880a81-a15a-45a5-aafe-f08f39ca5828" name="Changes" comment="" />
+      <changelist id="321d2d85-ecd2-496a-b83b-37f8ad192986" name="Changes" comment="" />
       <created>1706457213618</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -74,10 +68,15 @@
       <workItem from="1707147064155" duration="6951000" />
       <workItem from="1707237787868" duration="830000" />
       <workItem from="1707240787451" duration="764000" />
+      <workItem from="1707348341459" duration="1387000" />
+      <workItem from="1707412089301" duration="7500000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
