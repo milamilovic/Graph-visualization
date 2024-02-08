@@ -241,6 +241,13 @@ div.file > div > button:hover, div.filter > div > button:hover {
     display: flex;
 }
 
+#divBird{
+    border: #e2e2e1 solid 1px;
+    width: 80%;
+    height: 20%;
+    margin-left: 10%;
+}
+
 #birdView {
 }
 
