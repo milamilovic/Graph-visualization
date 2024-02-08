@@ -20,7 +20,9 @@
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="stylesheet" href="static/style.css">
+{#    <link rel="stylesheet" href="static/style.css">#}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '../static/style.css' %}">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
             integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
             crossorigin="anonymous"></script>
@@ -39,7 +41,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
             integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
             crossorigin="anonymous"></script>
-    <div class="wrapper">
+
+
+
+
+    <div id="myTabContent" class="wrapper">
         <nav id="sidebar1" class="sidebar">
             <div class="sidebar-header">
                 <h3>Graph visualizer</h3>
@@ -64,6 +70,7 @@
             </div>
 
         <form  method="post" action="{% url 'load_data_source' %}">
+        {% csrf_token %}
             <div class="flex-container">
                 <select class="form-control" id="visualizer" name="visualizer">
                   {% for v in visualisers %}
@@ -79,7 +86,6 @@
                 </div>
             </div>
             <div>
-                {% csrf_token %}
                 <div class="form-group">
                     <select class="form-control" id="dataSource" name="parser">
                       {% for l in loaders %}
@@ -90,6 +96,19 @@
                 </div>
             </div>
             </form>
+         <form method ="post" action="{% url 'workspace' %}">
+    {% csrf_token %}
+        <button class="flex-item-left" id="addWorkspaceBtn">Add workspace</button>
+    </form>
+    <form method ="post"  action="{% url 'load_workspace' %}">
+ {% csrf_token %}
+        <select name="workspaces_select" class="workspaces">
+         {% for key in workspaces %}
+            <option name="option_workspace" class="options">{{key}}</option>
+         {% endfor %}
+        </select>
+        <button class="flex-item-left" id="applyWorkspaceBtn">Apply workspace</button>
+    </form>
         </nav>
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -144,6 +163,7 @@
     var selectedText = this.options[this.selectedIndex].text;
     console.log("Selected text: " + selectedText);
   });
+
 
     function scrollIfNeeded(element, container) {
         if (element == null)
@@ -245,4 +265,5 @@
             childrenContainer.style.display = isClosed ? 'block' : 'none';
         }
     }
+
 </script>

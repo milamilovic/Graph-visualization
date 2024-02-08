@@ -5,20 +5,25 @@ import pickle
 from services.data_source_api import GraphLoading
 from services.visualiser_api import GraphVisualisation
 
-from models.tree import Forest, TreeNode
-
 
 class CoreConfig:
     loader_instances = []
     visualizer_instances = []
+    workspace_instances = {}
+    current_workspace = None
     base_graph = None
     current_graph = None
     current_visualizer = None
-    tree = None
     config_file_path = 'config.pkl'
+
 
     def _init_(self):
         self.load_saved_instances()
+
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(CoreConfig, cls).__new__(cls)
+        return cls.instance
 
     def ready(self):
 
@@ -41,7 +46,8 @@ class CoreConfig:
                 'visualizer_instances': self.visualizer_instances,
                 'base_graph': self.base_graph,
                 'current_visualizer': self.current_visualizer,
-                "tree": self.tree
+                'workspace_instances': self.workspace_instances,
+                'current_workspace': self.current_workspace
             }
             pickle.dump(data, file)
 
@@ -54,12 +60,13 @@ class CoreConfig:
                 self.visualizer_instances = data.get('visualizer_instances', [])
                 self.base_graph = data.get('base_graph', None)
                 self.current_visualizer = data.get('current_visualizer', None)
-                self.tree = data.get('tree', None)
+                self.workspace_instances = data.get('workspace_instances', {})
+                self.current_workspace = data.get('current_workspace', None)
+
         except(EOFError):
             pass
         except (FileNotFoundError):
-            self.loader_instances = []
-            self.visualizer_instances = []
+            pass
 
     def setGraph(self, graph_instance):
         self.base_graph = graph_instance
@@ -69,6 +76,20 @@ class CoreConfig:
         self.current_visualizer = visualizer
         self.save_instances()
 
+    def set_current_workspace(self, workspace):
+        self.current_workspace = workspace
+        self.save_instances()
+
+    def set_workspace_graph(self, key, graph):
+        for k in self.workspace_instances:
+            if int(k) == int(key):
+                self.workspace_instances[k] = graph
+                break
+        else:
+            self.workspace_instances[key] = graph
+
+        self.save_instances()
+
     def set_plugin(self, l, v):
         # loaded_plugins = load()
         #
@@ -76,35 +97,9 @@ class CoreConfig:
         print("Loader instances")
         print(self.loader_instances)
         self.visualizer_instances = v
-        #
         self.save_instances()
 
-#     def load_tree(self):
-#         self.tree = Forest(None)
-#         for vertex in find_root_vertices(self.current_graph.find_subgraphs()):
-#             self.tree.roots.append(TreeNode(vertex, None, "vertex"))
-#
-#
-# def find_root_vertices(subgraphs):
-#     roots = []
-#     for graph in subgraphs:
-#         if graph.is_graph_directed():
-#             contour_nodes = graph.find_conture_nodes()
-#             hanging_nodes = graph.find_not_destination_vertices()
-#             roots += merge_lists_distinct(contour_nodes, hanging_nodes)
-#         else:
-#             if graph.has_cycle_undirected():
-#                 if len(graph.vertices) > 0:
-#                     roots.append(graph.vertices[0])
-#             else:
-#                 for v in graph.vertices:
-#                     if v.degree() <= 1:
-#                         roots.append(v)
-#     return roots
-#
-#
-# def merge_lists_distinct(first_list, second_list):
-#     for i in first_list:
-#         if i not in second_list:
-#             second_list.append(i)
-#     return second_list
+    def add_workspace(self, key, graph):
+        self.workspace_instances[key] = graph
+        print("WORKSPACE", self.workspace_instances)
+        self.save_instances()

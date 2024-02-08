@@ -31,35 +31,37 @@ class ApplicationConfig(AppConfig):
         self.core_instance.load_saved_instances()
         return self.core_instance.current_visualizer
 
+    def get_workspaces(self):
+        self.core_instance.load_saved_instances()
+        return self.core_instance.workspace_instances
+
     def load_tree(self):
         self.tree = Forest(None)
         for vertex in find_root_vertices(self.get_base_graph().find_subgraphs()):
             self.tree.roots.append(TreeNode(vertex, None, "vertex"))
 
+    def find_root_vertices(subgraphs):
+        roots = []
+        for graph in subgraphs:
+            if graph.is_graph_directed():
+                contour_nodes = graph.find_conture_nodes()
+                hanging_nodes = graph.find_not_destination_nodes()
+                roots += merge_lists_distinct(contour_nodes, hanging_nodes)
 
-def find_root_vertices(subgraphs):
-    roots = []
-    for graph in subgraphs:
-        if graph.is_graph_directed():
-            contour_nodes = graph.find_conture_nodes()
-            hanging_nodes = graph.find_not_destination_nodes()
-            roots += merge_lists_distinct(contour_nodes, hanging_nodes)
-
-        else:
-            if graph.has_cycle_undirected():
-                if len(graph.nodes) > 0:
-                    roots.append(graph.nodes[0])
             else:
-                for node in graph.nodes:
-                    if len(node.edges) <= 1:
-                        roots.append(node)
+                if graph.has_cycle_undirected():
+                    if len(graph.nodes) > 0:
+                        roots.append(graph.nodes[0])
+                else:
+                    for node in graph.nodes:
+                        if len(node.edges) <= 1:
+                            roots.append(node)
 
-    return roots
+        return roots
 
+    def merge_lists_distinct(first_list, second_list):
+        for i in first_list:
+            if i not in second_list:
+                second_list.append(i)
 
-def merge_lists_distinct(first_list, second_list):
-    for i in first_list:
-        if i not in second_list:
-            second_list.append(i)
-
-    return second_list
+        return second_list
