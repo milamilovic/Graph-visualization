@@ -297,17 +297,59 @@ class SimpleVisualiser(GraphVisualisation):
                         }
                         console.log("PORUKA: " + message)
                         alert(message)
+                    
+                        const id = el.id.replace("ID_", "");
+                        const dynamicTreeContainer = document.getElementById('dynamic-tree');
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('GET', `/${id};select`, true);
+                        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                                dynamicTreeContainer.innerHTML = xhr.responseText;
+                    
+                                const newToggles = dynamicTreeContainer.querySelectorAll('.node-toggle');
+                                newToggles.forEach(toggle => {
+                                    toggle.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        const newNode = this.parentNode;
+                                        toggleNode(newNode);
+                                    });
+                                });
+                                let nodesTree = document.querySelectorAll('.node-toggle');
+                                nodesTree.forEach(toggle => {
+                                    toggle.addEventListener('click', function (event) {
+                                        event.preventDefault();
+                                        const node = this.parentNode;
+                                        let newSelected = node.querySelector("#object-id").innerHTML;
+                                        if (current != null) {
+                                            nodeView(current, "#003B73")
+                                        }
+                                        current = nodesGraph[newSelected];
+                                        nodeView(current, "red");
+                                    });
+                                });
+                                if (document.getElementById('last-opened-node') != null) {
+                                    const lastOpenedNode = document.getElementById('last-opened-node').innerHTML;
+                                    element = document.getElementById(lastOpenedNode);
+                                    if (element) {
+                                        scrollIfNeeded(element, document.getElementById('tree'));
+                                        element.classList.add("selected-item");
+                                    }
+                                }
+                            }
+                        };
+                        xhr.send();
+                    
                         const wait = (n) => new Promise((resolve) => setTimeout(resolve, n));
                         const changeBackColor = async () => {
-                          await wait(5000);
-                          nodeView(node, '#595959')
-                          node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
+                            await wait(5000);
+                            nodeView(node, '#595959');
+                            node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
                         };
-                        // call the async function
                         changeBackColor();
                         node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
                     }
-
+                    
                     init();
 
                     function init() {

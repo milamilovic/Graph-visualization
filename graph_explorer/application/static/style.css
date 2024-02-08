@@ -226,6 +226,8 @@ div.file > div > button:hover, div.filter > div > button:hover {
     height: 100%;
     width: 20%;
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 0;
     right: 0;
     background-color: #5b5b5b;
@@ -248,10 +250,17 @@ div.file > div > button:hover, div.filter > div > button:hover {
     margin-left: 10%;
 }
 
-#birdView {
+#divTree{
+    text-align: center;
+    flex: 50%;
 }
 
-svg {
-    padding-bottom: 0px;
-    margin-bottom: 0px;
+#birdView {
+    text-align: center;
 }
+
+#treeView {
+    text-align: center;
+}
+
+
