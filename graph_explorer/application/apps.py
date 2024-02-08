@@ -27,3 +27,7 @@ class ApplicationConfig(AppConfig):
     def get_current_visualizer(self):
         self.core_instance.load_saved_instances()
         return self.core_instance.current_visualizer
+
+    def get_workspaces(self):
+        self.core_instance.load_saved_instances()
+        return self.core_instance.workspace_instances

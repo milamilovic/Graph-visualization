@@ -1,4 +1,5 @@
 import os
+import time
 
 import pkg_resources
 from use_cases.config import CoreConfig
@@ -29,7 +30,6 @@ def load():
     return visualisers, loaders
 
 
-
 def load_data_source(loaders, visualizers, selected_data_source, selected_visualizer, path, request):
     graph = None
     # cc = CoreConfig()
@@ -40,12 +40,12 @@ def load_data_source(loaders, visualizers, selected_data_source, selected_visual
             # print(graph)
             # print("LOAD", len(graph.nodes))
 
-    visualize(visualizers, selected_visualizer, graph,request)
-
+    visualize(visualizers, selected_visualizer, graph, request)
 
 
 def visualize(visualisers, selected_visualizer, graph, request):
     cc.setGraph(graph)
+    cc.set_workspace_graph(cc.current_workspace, graph)
     cc.set_current_visualizer(selected_visualizer)
     for v in visualisers:
         if v.identifier() == selected_visualizer:
@@ -54,3 +54,4 @@ def visualize(visualisers, selected_visualizer, graph, request):
             with open(path, 'w') as file:
                 file.write(v.visualize(graph, request))
 
+    time.sleep(2)
