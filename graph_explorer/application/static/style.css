@@ -226,8 +226,8 @@ div.file > div > button:hover, div.filter > div > button:hover {
     height: 100%;
     width: 20%;
     position: fixed;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
     top: 0;
     right: 0;
     background-color: #5b5b5b;

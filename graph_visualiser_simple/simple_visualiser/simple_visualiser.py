@@ -57,7 +57,6 @@ class SimpleVisualiser(GraphVisualisation):
                     
                     var aspectRatioHeight = null;
                      var aspectRatioWidth = null;
-                     var home = null;
                      var minimapDimensions = null;
                      var minimapViewer = null;
                      var minimapViewerDimensions = null;
@@ -89,8 +88,6 @@ class SimpleVisualiser(GraphVisualisation):
                        height: minimapDimensions.height,
                        width: minimapDimensions.width
                      }
-
-                     home = d3.select("#mainView").node();
 
                     var current = null;
     
@@ -261,8 +258,6 @@ class SimpleVisualiser(GraphVisualisation):
                         .attr('font-size',textSize).attr('font-family','poppins')
                         .attr('fill','white').text(d.id);
                     }
-
-                    while (force.alpha() > force.alphaMin()) { force.tick(); ticked(); }
 
                     function tick(e) {
 
