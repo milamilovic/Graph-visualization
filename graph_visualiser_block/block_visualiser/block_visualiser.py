@@ -118,13 +118,112 @@ class BlockVisualiser(GraphVisualisation):
                         return attribute;
                     });
             });
+            
+            function nodeView(d, color){
+                var width=30;
+                var textSize=12;
+
+                d3.select("g#"+d.id).selectAll("rect").remove(); // Remove existing rectangles
+                d3.select("g#"+d.id).selectAll("text").remove(); // Remove existing text
+
+                var textLength = d.attributes.join(" ").length;
+                var lineHeight = 15;  
+                var lines = Math.ceil(textLength / 20);  
+                var rectWidth = Math.max(100, textLength * 5);  
+
+                d3.select("g#"+d.id).append('rect')
+                    .attr('x', -rectWidth / 2)
+                    .attr('y', -lines * lineHeight / 2)  
+                    .attr('width', rectWidth)
+                    .attr('height', lines * lineHeight)
+                    .attr('fill', color)
+                    .attr('stroke', '#003B73');
+
+                d3.select("g#"+d.id).selectAll('text.attribute')
+                    .data([d.id].concat(d.attributes))
+                    .enter()
+                    .append('text')
+                    .attr('x', 0)
+                    .attr('y', function(_, i) {
+                        return -lines * lineHeight / 2 + 15 + i * lineHeight;  
+                    })
+                    .attr('text-anchor', 'middle')
+                    .attr('font-size', 12)
+                    .attr('font-family', 'poppins')
+                    .attr('fill', 'white')
+                    .text(function(attribute) {
+                        return attribute;
+                    });
+            }
+
 
             function clicked(d) {
-                var message = "ID: " + d.id + ", ";
-                for (var i = 0; i < d.attributes.length; i++) {
-                    message += d.attributes[i] + ", ";
+                console.log("USAO U CLICKED")
+                var message = "";
+                message += "ID:" + d.id + ", ";
+                if(current != null) {
+                    // d3.selectAll('.node').each(function(d){nodeView(d, '#595959');});
+                    nodeView(nodesGraph[current.id.replace("ID_", "")], '#1a324c')
                 }
-                alert(message);
+                var node = nodesGraph[d.id.replace("ID_", "")];
+                current = node;
+                nodeView(current, '#1a324c')
+                for(var i=0;i<node.attributes.length;i++) {
+                    message += node.attributes[i] + ", ";
+                }
+                console.log("PORUKA: " + message)
+                alert(message)
+                
+                const id = d.id.replace("ID_", "");
+                const dynamicTreeContainer = document.getElementById('dynamic-tree');
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', `/${id};select`, true);
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                        dynamicTreeContainer.innerHTML = xhr.responseText;
+
+                        const newToggles = dynamicTreeContainer.querySelectorAll('.node-toggle');
+                        newToggles.forEach(toggle => {
+                            toggle.addEventListener('click', function (event) {
+                                event.preventDefault();
+                                const newNode = this.parentNode;
+                                toggleNode(newNode);
+                            });
+                        });
+                        let nodesTree = document.querySelectorAll('.node-toggle');
+                        nodesTree.forEach(toggle => {
+                            toggle.addEventListener('click', function (event) {
+                                event.preventDefault();
+                                const node = this.parentNode;
+                                let newSelected = node.querySelector("#object-id").innerHTML;
+                                if (current != null) {
+                                    nodeView(current, "#003B73")
+                                }
+                                current = nodesGraph[newSelected];
+                                nodeView(current, "red");
+                            });
+                        });
+                        if (document.getElementById('last-opened-node') != null) {
+                            const lastOpenedNode = document.getElementById('last-opened-node').innerHTML;
+                            element = document.getElementById(lastOpenedNode);
+                            if (element) {
+                                scrollIfNeeded(element, document.getElementById('tree'));
+                                element.classList.add("selected-item");
+                            }
+                        }
+                    }
+                };
+                xhr.send();
+
+                const wait = (n) => new Promise((resolve) => setTimeout(resolve, n));
+                const changeBackColor = async () => {
+                    await wait(5000);
+                    nodeView(d, '#595959');
+                    node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
+                };
+                changeBackColor();
+                node.attr('transform', function(d) {return 'translate(' + d.x + ',' + d.y + ')';}).call(force.drag);
             }
 
             function tick() {

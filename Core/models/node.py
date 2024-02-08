@@ -47,3 +47,18 @@ class Node:
 
     def get_values_for_tag(self, tag):
         return [self._attributes[tag]]
+
+    def relations(self):
+        relations = []
+        for edge in self._edges:
+            if edge.name not in relations:
+                relations.append(edge.name)
+        return relations
+
+    def related_vertices(self, relation):
+        vertices = []
+        for edge in self._edges:
+            if edge.name == relation:
+                if edge.fromNode == self:
+                    vertices.append(edge.toNode)
+        return vertices
