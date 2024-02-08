@@ -128,12 +128,14 @@ class SimpleVisualiser(GraphVisualisation):
                             svg.attr("transform", " translate(" + [newX, newY] + ")" + " scale(" + currentScale + ")")
                             previousScale = currentScale;
                         } else {
-
+                            var newX1 = d3.event.translate[0] * previousScale;
+                            var newY1 = d3.event.translate[1] * previousScale;
+                            svg.attr("transform", " translate(" + [newX1, newY1] + ")" + " scale(" + previousScale + ")")
                         }
-                        updateBirdViewRect(d3.event, scaleForBirdZoom, newX, newY);
+                        updateBirdViewRect(d3.event);
                     })).append('g');
 
-                    function updateBirdViewRect(event, scaleForZoom, newX, newY) {
+                    function updateBirdViewRect(event) {
                         const action = d3.event.type === "zoom" && d3.event?.sourceEvent?.type === "mousemove" ? "PAN": "ZOOM";
 
                         if(action==="ZOOM") {
@@ -180,33 +182,48 @@ class SimpleVisualiser(GraphVisualisation):
                             }
 
                         } else {
-                            // console.log(event.translate)
-                            //
-                            // minimapViewerDimensions.top = -event.translate[1];
-                            // minimapViewerDimensions.left = -event.translate[0];
-                            //
-                            // let graphWidth = d3.select("#mainView").select("g").node().getBBox().width;
-                            // let graphHeight = d3.select("#mainView").select("g").node().getBBox().height;
-                            //
-                            // let mainWidth = document.getElementById("top").offsetWidth;
-                            // let mainHeight = document.getElementById("top").offsetHeight;
-                            //
-                            // birdViewWidth = document.getElementById("divBird").offsetWidth
-                            // birdViewHeight = document.getElementById("divBird").offsetHeight
-                            //
-                            // let scaleWidth = (birdViewWidth / mainWidth) / scaleForZoom;
-                            // let scaleHeight = (birdViewHeight / mainHeight) / scaleForZoom;
+                            let main = d3.select("#mainView").html();
+                            d3.select("#birdView").html(main);
 
-                            // TODO
-                            minimapViewerDimensions.top = minimapViewerDimensions.top + minimapViewerDimensions.height * scaleForZoom
-                            minimapViewerDimensions.left = minimapViewerDimensions.left * minimapViewerDimensions.width * scaleForZoom
-                            console.log("top: " + minimapViewerDimensions.top)
-                            console.log("scale: " + scaleForZoom)
+                            console.log(originalGraphWidth + ", " + originalGraphHeight)
+
+                            let birdWidth = $("#birdView")[0].clientWidth;
+                            let birdHeight = $("#birdView")[0].clientHeight;
+
+                            let graph = document.querySelector("#mainView g");
+
+                            let graphWidth = document.querySelector("#mainView g").getBoundingClientRect().width;
+                            let graphHeight = document.querySelector("#mainView g").getBoundingClientRect().height;
+                            let graphTop = graph.getBoundingClientRect().top;
+                            let graphLeft = graph.getBoundingClientRect().left;
+
+
+                            let mainWidth = document.getElementById("top").offsetWidth;
+                            let mainHeight = document.getElementById("top").offsetHeight;
+
+                            // kada je graf manji od inicijalne velicine
+                            if (originalGraphWidth > graphWidth || originalGraphHeight > graphHeight) {
+                                minimapViewerDimensions.height = birdHeight;
+                                minimapViewerDimensions.width = birdWidth;
+                                if (graphTop >= 0) {
+                                    minimapViewerDimensions.top = 0;
+                                } else {
+                                    minimapViewerDimensions.top = -((graphTop * minimapViewerDimensions.height) / mainHeight);
+                                }
+                                if (graphLeft >= 0) {
+                                    minimapViewerDimensions.left = 0;
+                                } else {
+                                    minimapViewerDimensions.left = -((graphLeft * minimapViewerDimensions.width) / mainWidth);
+                                }
+                            } else {
+                                // kada je graf veci ili jednak inicijalnoj velicini
+                                minimapViewerDimensions.height = (birdHeight * mainHeight * 1.05) / graphHeight;
+                                minimapViewerDimensions.width = (birdWidth * mainWidth * 1.05) / graphWidth;
+
+                                minimapViewerDimensions.top = -((graphTop * minimapViewerDimensions.height) / mainHeight);
+                                minimapViewerDimensions.left = -((graphLeft * minimapViewerDimensions.width) / mainWidth);
+                            }
                         }
-
-                        // Pomeranje pravougaonika u skladu sa pan transformacijom
-                        // d3.select("#birdView").select('rect').attr("x", document.getElementsByTagName("rect")[0].x - event.transform.x / event.translate)
-                        //     .attr("y", document.getElementsByTagName("rect")[0].y - event.transform.y / event.translate);
                     }
 
                     var force = d3.layout.force()
