@@ -86,6 +86,7 @@ def load_data_source(request):
         selected_parser = request.POST.get('parser')
         selected_visualizer = request.POST.get('visualizer')
         selected_file = request.POST.get('file')
+        tree = None
 
 
         try:

@@ -106,16 +106,25 @@ class Graph:
         return self.find_subgraphs(nodes, graphs)
 
     def check_if_true(self, node, connected):
+        if not node.edges:  # Provera da li čvor ima ivica
+            return False
+
         for edge in node.edges:
-            if connected[edge.fromNode]:
+            if edge.fromNode in connected and connected[edge.fromNode]:
                 return True
-            elif connected[edge.toNode]:
+            elif edge.toNode in connected and connected[edge.toNode]:
                 return True
         return False
 
     def check_as_true(self, edges, connected):
+        if not edges:  # Provera da li lista ivica nije prazna
+            return False
+
         changes = False
         for edge in edges:
+            if edge.fromNode not in connected or edge.toNode not in connected:
+                continue  # Preskačemo ivicu ako njeni čvorovi nisu deo rečnika connected
+
             if connected[edge.fromNode] is False:
                 changes = True
             elif connected[edge.toNode] is False:
