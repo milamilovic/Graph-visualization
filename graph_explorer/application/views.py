@@ -125,19 +125,15 @@ def search(request):
 
 
 def split_query(query):
-    operators_pattern = re.compile(r'==|>|>=|<|<=|!=')
-
+    operators_pattern = re.compile(r'==|>=|>|<=|<|!=')
     operators = operators_pattern.findall(query)
     substrings = operators_pattern.split(query)
 
-    result = []
-    for i in range(len(substrings) - 1):
-        result.append(substrings[i])
-        result.append(operators[i])
+    if len(operators) == 1 and len(substrings) == 2:
+        result = [substrings[0].strip(), operators[0], substrings[1].strip()]
+        return result
 
-    result.append(substrings[-1])
-
-    return result
+    raise ValueError("Invalid query format. Expected exactly one operator and two operands.")
 
 
 def filter_graph(request):

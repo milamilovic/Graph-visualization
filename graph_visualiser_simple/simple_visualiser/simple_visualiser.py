@@ -279,12 +279,13 @@ class SimpleVisualiser(GraphVisualisation):
                     function clicked(el){
                         console.log("USAO U CLICKED")
                         var message = "";
-                        message += "ID:" + el.index + ", ";
+                        const id = el.id.replace("ID_", "");
+                        message += "ID:" + id + ", ";
                         if(current != null) {
                             //d3.selectAll('.node').each(function(d){nodeView(d, '#595959');});
-                            nodeView(nodesGraph[current.index], '#1a324c')
+                            nodeView(nodesGraph[id], '#1a324c')
                         }
-                        var node = nodesGraph[el.index];
+                        var node = nodesGraph[id];
                         current = node;
                         nodeView(current, '#1a324c')
                         for(var i=0;i<node.attributes.length;i++) {
@@ -293,7 +294,6 @@ class SimpleVisualiser(GraphVisualisation):
                         console.log("PORUKA: " + message)
                         alert(message)
                     
-                        const id = el.id.replace("ID_", "");
                         const dynamicTreeContainer = document.getElementById('dynamic-tree');
                         const xhr = new XMLHttpRequest();
                         xhr.open('GET', `/${id};select`, true);
