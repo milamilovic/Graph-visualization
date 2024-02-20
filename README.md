@@ -1,5 +1,8 @@
 # Graph explorer
 
+## Overview
+The program, developed in JavaScript using Django and the D3 library, is a powerful tool for visualizing graphs. It supports plugins for both simple and block visualizations, as well as for JSON, RDF, and XML data sources, making it versatile and adaptable. With additional features like tree and bird views, multiple workspaces, and advanced filtering and searching capabilities, this tool is an essential asset for data visualization and analysis.
+
 ## Team
 - Mila Milović SV22/2021
 - Sonja Baljicki SV59/2021
@@ -62,3 +65,15 @@ On the page you first have to add a new workspace and apply it. Then you can cho
 Comparator can be `==,>,>=,<,<=,!=` .
 The graph is shown in the main view, tree view and bird view.
 You can also zoom the graph, drag and drop and click the nodes.
+
+## Images
+#### graph visualization
+![Graph visualizer - Google Chrome 2_20_2024 7_22_44 PM](https://github.com/milamilovic/Graph-visualization/assets/104532211/e2c9a16c-8fc8-48b1-9d18-97e61effb9b0)
+#### bird view example
+![Graph visualizer - Google Chrome 2_20_2024 7_23_43 PM](https://github.com/milamilovic/Graph-visualization/assets/104532211/4ed54b90-0b6a-4fd5-a7d3-dfb681184bb2)
+#### clicking on node
+![Graph visualizer - Google Chrome 2_20_2024 7_23_07 PM](https://github.com/milamilovic/Graph-visualization/assets/104532211/243e46cc-d15c-4403-b050-c7bdfd7b94ba)
+#### dragging the nodes
+![Graph visualizer - Google Chrome 2_20_2024 7_24_10 PM](https://github.com/milamilovic/Graph-visualization/assets/104532211/9781f274-5157-4b94-b36b-f1808bd2a983)
+#### menu
+![Graph visualizer - Google Chrome 2_20_2024 7_24_20 PM](https://github.com/milamilovic/Graph-visualization/assets/104532211/dd59c724-2fd2-4554-a0ee-a5a8e236ad5d)
